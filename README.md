@@ -1,4 +1,4 @@
-# ⚒️ WP-Forge
+# WP-Forge
 
 > A modern, powerful WordPress theme framework - **forged to be better**
 
@@ -8,22 +8,22 @@
 
 WP-Forge is a next-generation WordPress theme framework that takes modern development practices to the next level. Built from the ground up with TypeScript, Vite, and cutting-edge tooling, it's designed to make WordPress theme development fast, type-safe, and enjoyable.
 
-## 🎯 Why WP-Forge?
+## Why WP-Forge?
 
 While inspired by excellent frameworks like WPRig, WP-Forge goes further:
 
-- ✅ **TypeScript-First**: Full type safety across PHP and JavaScript
-- ⚡ **Vite-Powered**: Lightning-fast HMR and build times
-- 🧩 **Component Registry**: Share and reuse components across projects
-- 🤖 **AI-Assisted**: Built-in AI tools for development (optional)
-- 🎨 **Design System Integration**: Choose Tailwind, UnoCSS, or vanilla CSS
-- 🧪 **Comprehensive Testing**: Unit, integration, E2E, and visual regression tests
-- 📱 **Performance-First**: Automatic critical CSS, lazy loading, and optimization
-- 🔌 **Headless-Ready**: First-class support for decoupled architectures
-- 🎭 **Component Explorer**: Built-in Storybook-like component browser
-- 📦 **Modern Tooling**: Monorepo, Turbo, pnpm, and more
+- **TypeScript-First**: Full type safety across PHP and JavaScript
+- **Vite-Powered**: Lightning-fast HMR and build times
+- **Component Registry**: Share and reuse components across projects
+- **AI-Assisted**: Built-in AI tools for development (optional)
+- **Design System Integration**: Choose Tailwind, UnoCSS, or vanilla CSS
+- **Comprehensive Testing**: Unit, integration, E2E, and visual regression tests
+- **Performance-First**: Automatic critical CSS, lazy loading, and optimization
+- **Headless-Ready**: First-class support for decoupled architectures
+- **Component Explorer**: Built-in Storybook-like component browser
+- **Modern Tooling**: Monorepo, Turbo, pnpm, and more
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Create a new theme using WP-Forge
@@ -36,11 +36,11 @@ pnpm install
 pnpm dev
 ```
 
-## 📚 Documentation
+## Documentation
 
 Coming soon! Check the `/docs` directory for early documentation.
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 WP-Forge/
@@ -59,7 +59,7 @@ WP-Forge/
 └── templates/            # Theme templates for scaffolding
 ```
 
-## 🛠️ Development
+## Development
 
 This is a monorepo managed with [Turborepo](https://turbo.build/) and [pnpm](https://pnpm.io/).
 
@@ -81,15 +81,15 @@ pnpm lint
 pnpm format
 ```
 
-## 🤝 Contributing
+## Contributing
 
 WP-Forge is an open-source project and contributions are welcome! Check out the [CONTRIBUTING.md](./CONTRIBUTING.md) guide.
 
-## 📄 License
+## License
 
 GPL-3.0-or-later - just like WordPress itself.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Inspired by:
 - [WPRig](https://wprig.io/) - For the excellent component architecture
@@ -98,6 +98,6 @@ Inspired by:
 
 ---
 
-**Status**: 🚧 Early Development - Watch this repo to follow progress!
+**Status**: Early Development - Watch this repo to follow progress!
 
 Built with ❤️ by Jon Imms
