@@ -45,7 +45,7 @@ export function wpForge(options: WpForgePluginOptions = {}): Plugin[] {
 /**
  * Core WP-Forge plugin
  */
-function wpForgeCore(options: WpForgePluginOptions): Plugin {
+function wpForgeCore(_options: WpForgePluginOptions): Plugin {
   let config: ResolvedConfig
 
   return {

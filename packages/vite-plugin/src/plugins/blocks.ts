@@ -1,5 +1,5 @@
 import type { Plugin } from 'vite'
-import { glob } from 'fast-glob'
+import fg from 'fast-glob'
 import { readFile, writeFile } from 'fs/promises'
 import { join, dirname, relative } from 'path'
 import pc from 'picocolors'
@@ -28,7 +28,7 @@ export function wpForgeBlocks(options: BlockOptions = {}): Plugin {
 
     async buildStart() {
       // Discover blocks
-      const blockJsonFiles = await glob(join(dir, pattern), {
+      const blockJsonFiles = await fg(join(dir, pattern), {
         cwd: rootDir,
         absolute: true,
       })
@@ -91,7 +91,7 @@ export function wpForgeBlocks(options: BlockOptions = {}): Plugin {
 /**
  * Generate PHP code for block registration
  */
-function generateBlockRegistration(blocks: BlockMetadata[], namespace: string): string {
+function generateBlockRegistration(blocks: BlockMetadata[], _namespace: string): string {
   const blockDirs = blocks.map((block) => {
     const blockData = block as BlockMetadata & { _dir: string }
     return blockData._dir
