@@ -49,7 +49,7 @@
             ?>
         </div>
 
-        <nav id="site-navigation" class="main-navigation">
+        <nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'forge-basic' ); ?>">
             <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
                 <span class="menu-toggle-icon"></span>
                 <span class="screen-reader-text">
@@ -62,6 +62,7 @@
                 'menu_id'        => 'primary-menu',
                 'menu_class'     => 'menu',
                 'container'      => false,
+                'fallback_cb'    => false,
             ]);
             ?>
         </nav>

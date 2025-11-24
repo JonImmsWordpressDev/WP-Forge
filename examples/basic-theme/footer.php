@@ -26,12 +26,14 @@
         <?php
         if ( has_nav_menu( 'footer' ) ) :
             ?>
-            <nav class="footer-navigation">
+            <nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer Navigation', 'forge-basic' ); ?>">
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'footer',
                     'menu_class'     => 'footer-menu',
+                    'container'      => false,
                     'depth'          => 1,
+                    'fallback_cb'    => false,
                 ]);
                 ?>
             </nav>
