@@ -49,7 +49,8 @@ WP-Forge/
 │   ├── core/             # PHP framework core
 │   └── vite-plugin/      # Vite integration for WordPress
 ├── examples/
-│   └── basic-theme/      # Simple starter theme
+│   ├── basic-theme/      # Simple starter theme
+│   └── advanced-theme/   # Feature-rich theme with CPTs, WooCommerce, etc.
 └── docs/                 # Documentation (coming soon)
 ```
 
