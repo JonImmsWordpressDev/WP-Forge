@@ -1,0 +1,10 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#f9fafb"/>
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#111827" text-anchor="middle">WP-Forge</text>
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="42" fill="#3b82f6" text-anchor="middle">Basic Theme</text>
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="24" fill="#6b7280" text-anchor="middle">Simple, Clean, Fast</text>
+  <text x="600" y="550" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle">✓ TypeScript + Vite</text>
+  <text x="600" y="590" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle">✓ Custom Blocks</text>
+  <text x="600" y="630" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle">✓ Performance Optimized</text>
+  <text x="600" y="670" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle">✓ Accessibility Ready</text>
+</svg>
