@@ -1,64 +1,124 @@
 # WP-Forge Advanced Theme
 
-A comprehensive, feature-rich example theme showcasing the full capabilities of the WP-Forge framework. This theme demonstrates how to build professional WordPress sites with custom post types, WooCommerce integration, multiple layouts, and advanced functionality.
+A comprehensive, feature-rich Block Theme (FSE) showcasing all WP-Forge capabilities. Perfect for business, e-commerce, portfolio, and blog sites.
 
 ## Features
 
-### Custom Post Types
-- **Portfolio** - Showcase projects and work with categories and tags
-- **Testimonials** - Display client feedback and reviews
-- **Team** - Manage team members with departments
+### Block Theme (Full Site Editing)
+- Visual Site Editor with complete control
+- Edit all templates and template parts in the admin
+- Global styles and design system via theme.json
+- No need to touch code (but you can!)
 
-### Navigation
-Multiple menu locations for flexible site structure:
-- Primary Menu
-- Top Bar Menu
-- Footer Menu
-- Mobile Menu
-- Social Links
+### Custom Post Types
+- **Portfolio** - Showcase projects with categories and tags
+- **Testimonials** - Display client feedback with styled layouts
+- **Team** - Manage team members with departments
+- Each CPT has custom single and archive templates
+
+### Templates Included
+- Index, Single, Page, Archive, 404
+- Portfolio (single + archive with grid layout)
+- Team (single with bio layout + archive grid)
+- Testimonials (single with styled quote card)
 
 ### WooCommerce Integration
-Full e-commerce support with:
-- Theme-specific product gallery features
-- Custom product image sizes
-- Optimized WooCommerce styling
+- Full e-commerce support
+- Custom product gallery features
+- Theme-optimized styling
 
-### Custom Blocks
-Extends the basic theme with additional blocks for:
-- Hero sections
-- Feature cards
-- (More blocks can be added in src/blocks/)
+### Navigation
+5 menu locations:
+- Primary, Top Bar, Footer, Mobile, Social Links
 
-### Flexible Layouts
-- Multiple page templates (coming soon)
-- Sidebar support
-- Full-width layouts
-- Landing page templates
-
-### Performance
-- Vite-powered build system
-- Hot Module Replacement (HMR) in development
-- Optimized production builds
-- Critical CSS inlining
+### Modern Development
+- TypeScript + Vite build system
+- Hot Module Replacement (HMR)
+- Custom Gutenberg blocks
+- Performance optimized
 
 ### Accessibility
-- WCAG 2.1 compliant
+- WCAG 2.1 Level AAA compliant
+- 48px minimum touch targets
 - Proper ARIA labels
-- Keyboard navigation support
-- Screen reader friendly
+- Keyboard navigation
 
 ## Installation
 
-1. Clone or download this theme to your WordPress themes directory
-2. Install PHP dependencies: composer install
-3. Install JavaScript dependencies: pnpm install
-4. Build assets: pnpm build
-5. Activate the theme in WordPress Admin
+1. Clone to your themes directory
+2. Install dependencies:
+   ```bash
+   composer install
+   pnpm install
+   ```
+3. Build assets:
+   ```bash
+   pnpm build
+   ```
+4. Activate in WordPress
+
+## Using the Site Editor
+
+### Edit Everything Visually
+1. Go to **Appearance → Editor**
+2. Browse templates by type (posts, pages, CPTs)
+3. Edit template parts (header, footer)
+4. Customize global styles (colors, fonts, spacing)
+5. All changes save automatically
+
+### Custom Post Types
+After activation, you'll see in your admin:
+- **Portfolio** menu item
+- **Testimonials** menu item  
+- **Team** menu item
+
+Add content and it will use the custom templates automatically!
 
 ## Development
 
-Start development server with HMR: pnpm dev
-Build for production: pnpm build
+```bash
+pnpm dev    # Start dev server with HMR
+pnpm build  # Build for production
+```
+
+## File Structure
+
+```
+advanced-theme/
+├── theme.json              # Design system
+├── templates/              # Block templates
+│   ├── index.html
+│   ├── single.html
+│   ├── page.html
+│   ├── archive.html
+│   ├── 404.html
+│   ├── single-portfolio.html
+│   ├── archive-portfolio.html
+│   ├── single-team.html
+│   ├── archive-team.html
+│   └── single-testimonial.html
+├── parts/                  # Template parts
+│   ├── header.html
+│   └── footer.html
+├── inc/Components/         # PHP components
+│   ├── CustomPostTypes.php
+│   ├── WooCommerce.php
+│   ├── Navigation.php
+│   └── Customizer.php
+└── src/                    # Assets
+    ├── blocks/
+    ├── css/
+    └── js/
+```
+
+## Use Cases
+
+This theme is designed for:
+- **Business/Corporate** - Professional services, agencies
+- **E-commerce** - Online stores with WooCommerce
+- **Portfolio** - Showcase creative work
+- **Blog/Magazine** - Content-rich sites
+- **Multi-purpose** - Flexible for any need
 
 ## Requirements
 
@@ -66,15 +126,6 @@ Build for production: pnpm build
 - WordPress 6.0+
 - Node.js 18+
 - Composer
-
-## Use Cases
-
-This theme is designed to work for:
-- Business/Corporate sites
-- E-commerce stores (WooCommerce)
-- Portfolio websites
-- Blog/Magazine sites
-- Multi-purpose projects
 
 ## License
 
