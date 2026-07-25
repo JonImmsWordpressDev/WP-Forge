@@ -1,6 +1,6 @@
 {
   "name": "@stratawp/cli",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "CLI tool for StrataWP - create and manage WordPress themes",
   "author": "Jon Imms",
   "license": "GPL-3.0-or-later",
@@ -41,7 +41,10 @@
   },
   "files": [
     "dist",
-    "templates"
+    "templates",
+    "!templates/**/node_modules",
+    "!templates/**/dist",
+    "!templates/**/.turbo"
   ],
   "scripts": {
     "dev": "tsup --watch",
@@ -49,7 +52,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepack": "node scripts/sync-template-vendor.mjs"
   },
   "dependencies": {
     "@stratawp/explorer": "workspace:*",
