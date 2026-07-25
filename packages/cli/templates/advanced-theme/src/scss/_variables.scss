@@ -6,18 +6,18 @@
  */
 
 :root {
-  // Frost Design System Colors
+  // Design System Colors
   // Note: WordPress automatically generates CSS variables from theme.json:
   // --wp--preset--color--base, --wp--preset--color--contrast, etc.
   // These are simplified fallbacks for backwards compatibility
 
-  --color-base: #ffffff;        // Background (Frost: base)
-  --color-contrast: #000000;    // Text (Frost: contrast)
-  --color-primary: #0000ff;     // Brand color (Frost: primary)
-  --color-secondary: #000099;   // Accent (Frost: secondary)
-  --color-neutral: #eeeeee;     // Borders/subtle backgrounds (Frost: neutral)
+  --color-base: #ffffff;        // Background
+  --color-contrast: #000000;    // Text
+  --color-primary: #0000ff;     // Brand color
+  --color-secondary: #000099;   // Accent
+  --color-neutral: #eeeeee;     // Borders/subtle backgrounds
 
-  // Legacy aliases (map to Frost colors)
+  // Legacy aliases
   --color-text: var(--color-contrast);
   --color-bg: var(--color-base);
   --color-bg-alt: var(--color-neutral);

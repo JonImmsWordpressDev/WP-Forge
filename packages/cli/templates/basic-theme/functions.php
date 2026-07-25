@@ -102,3 +102,19 @@ function strata_basic_activate(): void {
 }
 
 add_action( 'after_switch_theme', 'strata_basic_activate' );
+
+/**
+ * Register pattern categories used by the bundled patterns
+ */
+function strata_basic_register_pattern_categories(): void {
+	register_block_pattern_category(
+		'strata-basic-page',
+		array( 'label' => __( 'Pages', 'strata-basic' ) )
+	);
+	register_block_pattern_category(
+		'strata-basic-pricing',
+		array( 'label' => __( 'Pricing', 'strata-basic' ) )
+	);
+}
+
+add_action( 'init', 'strata_basic_register_pattern_categories' );
