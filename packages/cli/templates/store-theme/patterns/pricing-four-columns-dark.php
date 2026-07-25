@@ -2,7 +2,7 @@
 /**
  * Title: Pricing table with heading, list, buttons.
  * Slug: strata-store/pricing-four-columns-dark
- * Categories: frost-pricing
+ * Categories: strata-store-pricing
  */
 ?>
 <!-- wp:group {"align":"wide","layout":{"type":"default"}} -->

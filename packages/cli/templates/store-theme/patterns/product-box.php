@@ -19,7 +19,7 @@
 		<!-- wp:column {"verticalAlignment":"center","style":{"spacing":{"blockGap":"15px"}}} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:heading {"fontSize":"large"} -->
-			<h2 class="wp-block-heading has-large-font-size"><?php echo esc_html__( 'Frost WordPress Theme', 'strata-store' ); ?></h2>
+			<h2 class="wp-block-heading has-large-font-size"><?php echo esc_html__( 'StrataWP WordPress Theme', 'strata-store' ); ?></h2>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.5"}}} -->
 			<p style="line-height:1.5"><?php echo esc_html__( 'The ultimate WordPress block theme for agencies and website builders.', 'strata-store' ); ?></p>
@@ -27,7 +27,7 @@
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">
 				<!-- wp:button {"style":{"spacing":{"padding":{"top":"var:preset|spacing|x-small","bottom":"var:preset|spacing|x-small","left":"var:preset|spacing|large","right":"var:preset|spacing|large"}}}} -->
-				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="padding-top:var(--wp--preset--spacing--x-small);padding-right:var(--wp--preset--spacing--large);padding-bottom:var(--wp--preset--spacing--x-small);padding-left:var(--wp--preset--spacing--large)"><?php echo esc_html__( 'Buy Frost', 'strata-store' ); ?></a></div>
+				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="padding-top:var(--wp--preset--spacing--x-small);padding-right:var(--wp--preset--spacing--large);padding-bottom:var(--wp--preset--spacing--x-small);padding-left:var(--wp--preset--spacing--large)"><?php echo esc_html__( 'Buy StrataWP', 'strata-store' ); ?></a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

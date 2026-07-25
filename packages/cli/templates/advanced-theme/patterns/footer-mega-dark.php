@@ -15,7 +15,7 @@
 			<h4 class="wp-block-heading" id="our-company"><?php echo esc_html__( 'Our Company', 'strata-advanced' ); ?></h4>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites.', 'strata-advanced' ); ?></p>
+			<p><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, StrataWP enables agencies to build stylish and sophisticated WordPress websites.', 'strata-advanced' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">

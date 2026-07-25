@@ -12,10 +12,10 @@
 		<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|small","right":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"var:preset|spacing|small"}},"border":{"width":"1px"}},"borderColor":"contrast"} -->
 		<div class="wp-block-column has-border-color has-contrast-border-color" style="border-width:1px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--small)">
 			<!-- wp:heading {"level":3,"anchor":"sample-heading-1"} -->
-			<h3 class="wp-block-heading" id="sample-heading-1"><?php echo esc_html__( 'Build with Frost', 'strata-advanced' ); ?></h3>
+			<h3 class="wp-block-heading" id="sample-heading-1"><?php echo esc_html__( 'Build with StrataWP', 'strata-advanced' ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php echo esc_html__( 'Frost is a powerful WordPress theme created for agencies and professional website builders.', 'strata-advanced' ); ?></p>
+			<p><?php echo esc_html__( 'StrataWP is a powerful WordPress theme created for agencies and professional website builders.', 'strata-advanced' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">
@@ -29,10 +29,10 @@
 		<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|small","right":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"var:preset|spacing|small"}},"border":{"width":"1px"}},"borderColor":"contrast"} -->
 		<div class="wp-block-column has-border-color has-contrast-border-color" style="border-width:1px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--small)">
 			<!-- wp:heading {"level":3,"anchor":"sample-heading-1"} -->
-			<h3 class="wp-block-heading" id="sample-heading-1"><?php echo esc_html__( 'Build with Frost', 'strata-advanced' ); ?></h3>
+			<h3 class="wp-block-heading" id="sample-heading-1"><?php echo esc_html__( 'Build with StrataWP', 'strata-advanced' ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php echo esc_html__( 'Frost is a powerful WordPress theme created for agencies and professional website builders.', 'strata-advanced' ); ?></p>
+			<p><?php echo esc_html__( 'StrataWP is a powerful WordPress theme created for agencies and professional website builders.', 'strata-advanced' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">
@@ -46,10 +46,10 @@
 		<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|small","right":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"var:preset|spacing|small"}},"border":{"width":"1px"}},"borderColor":"contrast"} -->
 		<div class="wp-block-column has-border-color has-contrast-border-color" style="border-width:1px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--small)">
 			<!-- wp:heading {"level":3,"anchor":"sample-heading-1"} -->
-			<h3 class="wp-block-heading" id="sample-heading-1"><?php echo esc_html__( 'Build with Frost', 'strata-advanced' ); ?></h3>
+			<h3 class="wp-block-heading" id="sample-heading-1"><?php echo esc_html__( 'Build with StrataWP', 'strata-advanced' ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php echo esc_html__( 'Frost is a powerful WordPress theme created for agencies and professional website builders.', 'strata-advanced' ); ?></p>
+			<p><?php echo esc_html__( 'StrataWP is a powerful WordPress theme created for agencies and professional website builders.', 'strata-advanced' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">

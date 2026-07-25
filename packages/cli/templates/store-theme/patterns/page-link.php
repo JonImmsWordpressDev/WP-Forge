@@ -2,7 +2,7 @@
 /**
  * Title: Sample link page.
  * Slug: strata-store/page-link
- * Categories: frost-page
+ * Categories: strata-store-page
  */
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0px"},"padding":{"left":"0px","top":"var:preset|spacing|large","right":"0px","bottom":"var:preset|spacing|large"}},"dimensions":{"minHeight":"100vh"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
@@ -47,9 +47,6 @@
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
-		<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-		<p class="has-text-align-center has-small-font-size"><a href="https://wordpress.org/themes/frost/"><?php echo esc_html__( 'Made with Frost', 'strata-store' ); ?></a></p>
-		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
 </div>

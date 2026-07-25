@@ -104,3 +104,19 @@ function strata_store_activate(): void {
 }
 
 add_action( 'after_switch_theme', 'strata_store_activate' );
+
+/**
+ * Register pattern categories used by the bundled patterns
+ */
+function strata_store_register_pattern_categories(): void {
+	register_block_pattern_category(
+		'strata-store-page',
+		array( 'label' => __( 'Pages', 'strata-store' ) )
+	);
+	register_block_pattern_category(
+		'strata-store-pricing',
+		array( 'label' => __( 'Pricing', 'strata-store' ) )
+	);
+}
+
+add_action( 'init', 'strata_store_register_pattern_categories' );

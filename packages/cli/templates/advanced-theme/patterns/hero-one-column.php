@@ -11,12 +11,12 @@
 	<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri() ) . '/assets/images/sample_1920x1200.jpg'; ?>" alt="<?php echo esc_attr__( 'Sample Image', 'strata-advanced' ); ?>" /></figure>
 	<!-- /wp:image -->
 	<!-- wp:heading {"textAlign":"center","anchor":"image-heading-text-buttons","style":{"spacing":{"margin":{"top":"var:preset|spacing|medium"}}},"className":"wp-block-heading","fontSize":"x-large"} -->
-	<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" id="image-heading-text-buttons" style="margin-top:var(--wp--preset--spacing--medium)"><?php echo esc_html__( 'Welcome to Frost', 'strata-advanced' ); ?></h2>
+	<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" id="image-heading-text-buttons" style="margin-top:var(--wp--preset--spacing--medium)"><?php echo esc_html__( 'Welcome to StrataWP', 'strata-advanced' ); ?></h2>
 	<!-- /wp:heading -->
 	<!-- wp:group {"layout":{"type":"constrained","wideSize":"600px"}} -->
 	<div class="wp-block-group">
 		<!-- wp:paragraph {"align":"center"} -->
-		<p class="has-text-align-center"><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites.', 'strata-advanced' ); ?></p>
+		<p class="has-text-align-center"><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, StrataWP enables agencies to build stylish and sophisticated WordPress websites.', 'strata-advanced' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
