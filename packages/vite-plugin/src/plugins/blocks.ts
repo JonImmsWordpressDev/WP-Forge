@@ -34,6 +34,11 @@ export function strataWPBlocks(options: BlockOptions = {}): Plugin {
         absolute: true,
       })
 
+      // fast-glob returns readdir order, which varies by filesystem and
+      // platform — sort so generated output (a committed file) is
+      // deterministic across machines.
+      blockJsonFiles.sort()
+
       blocks = []
 
       for (const blockJsonPath of blockJsonFiles) {
