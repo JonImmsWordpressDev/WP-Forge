@@ -36,12 +36,12 @@ describe('replaceThemeTokens', () => {
     )
     await fs.writeFile(
       path.join(themePath, 'functions.php'),
-      "<?php\nfunction strata_basic_setup() {\n" +
+      '<?php\nfunction strata_basic_setup() {\n' +
         "    esc_html__( 'PHP Version Error', 'strata-basic' );\n}\n"
     )
     await fs.outputFile(
       path.join(themePath, 'patterns/hero.php'),
-      "<?php\n/**\n * Title: Hero\n * Slug: strata-basic/hero\n */\n?>\n" +
+      '<?php\n/**\n * Title: Hero\n * Slug: strata-basic/hero\n */\n?>\n' +
         '<!-- wp:pattern {"slug":"strata-basic/header-default"} /-->\n'
     )
     await fs.outputJson(path.join(themePath, 'src/blocks/hero/block.json'), {
@@ -57,7 +57,7 @@ describe('replaceThemeTokens', () => {
       path.join(themePath, 'node_modules/dep/index.js'),
       "module.exports = 'strata-basic'\n"
     )
-    await fs.outputFile(path.join(themePath, 'vendor/lib/lib.php'), "<?php // strata-basic\n")
+    await fs.outputFile(path.join(themePath, 'vendor/lib/lib.php'), '<?php // strata-basic\n')
     // Non-text file that must pass through untouched
     await fs.writeFile(path.join(themePath, 'screenshot.png'), Buffer.from('strata-basic\x00\x01'))
   })
