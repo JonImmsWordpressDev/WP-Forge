@@ -64,6 +64,45 @@ describe.each(Object.entries(TEMPLATES))('%s template', (templateName, ownToken)
     expect(match?.[1].trim()).toBe(ownToken)
   })
 
+  it('references only pattern slugs it registers (wp:pattern refs resolve)', () => {
+    // A wp:pattern block with an unknown slug renders nothing, silently —
+    // frost/* leftovers from the theme the scaffold was forked from left
+    // every affected template area empty on fresh scaffolds (issue #27).
+    const registered = new Set<string>()
+    for (const file of listTextFiles(path.join(templatePath, 'patterns'))) {
+      const match = fs.readFileSync(file, 'utf-8').match(/^\s*\*\s*Slug:\s*(.+)$/m)
+      if (match) {
+        registered.add(match[1].trim())
+      }
+    }
+
+    const unresolved: string[] = []
+    for (const file of listTextFiles(templatePath)) {
+      const content = fs.readFileSync(file, 'utf-8')
+      for (const match of content.matchAll(/wp:pattern\s+\{"slug":"([^"]+)"/g)) {
+        if (!registered.has(match[1])) {
+          unresolved.push(`${path.relative(templatePath, file)}: ${match[1]}`)
+        }
+      }
+    }
+
+    expect(unresolved).toEqual([])
+  })
+
+  it("carries no 'frost' text-domain leftovers from the forked-from theme", () => {
+    // The scaffold was forked from the Frost theme; i18n calls that still
+    // pass the 'frost' domain are untranslatable (WordPress only loads the
+    // domain declared in style.css).
+    const offenders: string[] = []
+    for (const file of listTextFiles(templatePath)) {
+      if (fs.readFileSync(file, 'utf-8').includes("'frost'")) {
+        offenders.push(path.relative(templatePath, file))
+      }
+    }
+
+    expect(offenders).toEqual([])
+  })
+
   it('contains no slug tokens from other templates', () => {
     const foreignTokens = Object.values(TEMPLATES)
       .filter((token) => token !== ownToken)
