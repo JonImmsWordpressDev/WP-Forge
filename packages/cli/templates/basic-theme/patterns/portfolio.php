@@ -12,10 +12,10 @@
 		<!-- wp:column {"verticalAlignment":"center","width":""} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:heading {"fontSize":"x-large","anchor":"sample-heading"} -->
-			<h2 class="wp-block-heading has-x-large-font-size" id="sample-heading"><?php echo esc_html__( 'Build with Frost', 'strata-basic' ); ?></h2>
+			<h2 class="wp-block-heading has-x-large-font-size" id="sample-heading"><?php echo esc_html__( 'Build with StrataWP', 'strata-basic' ); ?></h2>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php echo esc_html__( 'Frost is a powerful WordPress theme created for agencies and professional website builders. With its clean, minimal design, Frost provides the perfect canvas for sophisticated websites.', 'strata-basic' ); ?></p>
+			<p><?php echo esc_html__( 'StrataWP is a powerful WordPress theme created for agencies and professional website builders. With its clean, minimal design, StrataWP provides the perfect canvas for sophisticated websites.', 'strata-basic' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons"><!-- wp:button -->

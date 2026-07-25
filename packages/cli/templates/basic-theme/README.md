@@ -1,12 +1,11 @@
 # StrataWP Basic Theme
 
-A professional Block Theme (FSE) built on the Frost design system, showcasing the StrataWP framework with modern development tools. Perfect for blogs, business sites, and learning StrataWP.
+A professional Block Theme (FSE) showcasing the StrataWP framework with modern development tools. Perfect for blogs, business sites, and learning StrataWP.
 
 ## Features
 
-### Frost Design System Integration
+### Design System Integration
 
-- Built on WP Engine's Frost theme foundation
 - 52+ professional patterns (headers, footers, heroes, CTAs, testimonials, pricing tables)
 - Light and dark mode variants
 - Responsive design system with fluid typography
@@ -54,7 +53,7 @@ A professional Block Theme (FSE) built on the Frost design system, showcasing th
 
 ### Patterns (52)
 
-All patterns from Frost theme, adapted for StrataWP:
+Included block patterns:
 
 - **Headers**: default, notification bar (+ dark variants)
 - **Footers**: default, mega, stacked, three-columns (+ dark variants)
@@ -144,7 +143,7 @@ pnpm build  # Build for production
 
 ```
 basic-theme/
-├── theme.json              # Design system v3 (Frost-based)
+├── theme.json              # Design system v3
 ├── style.css               # Theme metadata
 ├── functions.php           # Theme setup + Vite integration
 ├── templates/              # Block templates (9 HTML files)
@@ -220,7 +219,6 @@ Edit `theme.json` to customize the color palette:
 
 ## Credits
 
-- **Design System**: Built on [Frost](https://frostwp.com/) by WP Engine
 - **Framework**: StrataWP by Jon Imms
 - **Inspired by**: a prior-art WordPress starter theme (GPL), Next.js, Vite
 

@@ -11,7 +11,7 @@
 	<!-- wp:group {"style":{"spacing":{"blockGap":"10px"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"}} -->
 	<div class="wp-block-group">
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"lineHeight":"1.5"}},"fontSize":"x-small"} -->
-		<p class="has-text-align-center has-x-small-font-size" style="line-height:1.5"><?php echo esc_html__( 'With its minimal design and powerful feature set, Frost enables agencies to build stylish websites.', 'strata-basic' ); ?></p>
+		<p class="has-text-align-center has-x-small-font-size" style="line-height:1.5"><?php echo esc_html__( 'With its minimal design and powerful feature set, StrataWP enables agencies to build stylish websites.', 'strata-basic' ); ?></p>
 		<!-- /wp:paragraph -->
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">

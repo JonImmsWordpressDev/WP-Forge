@@ -108,3 +108,19 @@ function strata_advanced_activate(): void {
 }
 
 add_action( 'after_switch_theme', 'strata_advanced_activate' );
+
+/**
+ * Register pattern categories used by the bundled patterns
+ */
+function strata_advanced_register_pattern_categories(): void {
+	register_block_pattern_category(
+		'strata-advanced-page',
+		array( 'label' => __( 'Pages', 'strata-advanced' ) )
+	);
+	register_block_pattern_category(
+		'strata-advanced-pricing',
+		array( 'label' => __( 'Pricing', 'strata-advanced' ) )
+	);
+}
+
+add_action( 'init', 'strata_advanced_register_pattern_categories' );

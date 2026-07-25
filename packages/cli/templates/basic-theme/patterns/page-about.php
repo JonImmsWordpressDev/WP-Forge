@@ -2,7 +2,7 @@
 /**
  * Title: Sample about page.
  * Slug: strata-basic/page-about
- * Categories: frost-page
+ * Categories: strata-basic-page
  */
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"70px","bottom":"var:preset|spacing|x-large","right":"30px","left":"30px"}}},"layout":{"type":"constrained"}} -->
@@ -15,7 +15,7 @@
 			<h2 class="wp-block-heading has-max-60-font-size" id="we-reimagine-how-to-build-wordpress-websites" style="margin-bottom:0px;letter-spacing:-1px"><?php echo esc_html__( 'Experience the next generation of WordPress.', 'strata-basic' ); ?></h2>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|x-small"}}},"fontSize":"large"} -->
-			<p class="has-large-font-size" style="margin-top:var(--wp--preset--spacing--x-small)"><?php echo esc_html__( 'Whether you’re building a website for your business, personal brand, or creative project, Frost is the perfect solution for anyone looking to launch a website quickly and efficiently.', 'strata-basic' ); ?></p>
+			<p class="has-large-font-size" style="margin-top:var(--wp--preset--spacing--x-small)"><?php echo esc_html__( 'Whether you’re building a website for your business, personal brand, or creative project, StrataWP is the perfect solution for anyone looking to launch a website quickly and efficiently.', 'strata-basic' ); ?></p>
 			<!-- /wp:paragraph -->
 				<!-- wp:buttons {"layout":{"type":"flex"},"style":{"spacing":{"blockGap":"10px","margin":{"top":"30px"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:30px">
@@ -68,10 +68,10 @@
 	<!-- wp:group {"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group">
 		<!-- wp:heading {"textAlign":"center","style":{"typography":{"letterSpacing":"-1px"}},"className":"wp-block-heading","fontSize":"max-60"} -->
-		<h2 class="wp-block-heading has-text-align-center has-max-60-font-size" id="text-on-left-image-on-right" style="letter-spacing:-1px"><?php echo esc_html__( 'Build with Frost.', 'strata-basic' ); ?></h2>
+		<h2 class="wp-block-heading has-text-align-center has-max-60-font-size" id="text-on-left-image-on-right" style="letter-spacing:-1px"><?php echo esc_html__( 'Build with StrataWP.', 'strata-basic' ); ?></h2>
 		<!-- /wp:heading -->
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"lineHeight":"1.5"}}} -->
-		<p class="has-text-align-center" style="line-height:1.5"><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites.', 'strata-basic' ); ?></p>
+		<p class="has-text-align-center" style="line-height:1.5"><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, StrataWP enables agencies to build stylish and sophisticated WordPress websites.', 'strata-basic' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -152,7 +152,7 @@
 		<!-- wp:column {"verticalAlignment":"center","width":"65%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:65%">
 			<!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.5"}},"fontSize":"large"} -->
-			<p class="has-large-font-size" style="line-height:1.5"><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites. Ka-chow!', 'strata-basic' ); ?></p>
+			<p class="has-large-font-size" style="line-height:1.5"><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, StrataWP enables agencies to build stylish and sophisticated WordPress websites. Ka-chow!', 'strata-basic' ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->
@@ -182,7 +182,7 @@
 		<h2 class="wp-block-heading has-text-align-center has-max-48-font-size" id="block-patterns" style="margin-bottom:0px"><?php echo esc_html__( 'Meet the team.', 'strata-basic' ); ?></h2>
 		<!-- /wp:heading -->
 		<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|medium"}}}} -->
-		<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--medium)"><?php echo esc_html__( 'The talented folks who work on the Frost theme.', 'strata-basic' ); ?></p>
+		<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--medium)"><?php echo esc_html__( 'The talented folks who work on the StrataWP theme.', 'strata-basic' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

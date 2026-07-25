@@ -14,10 +14,10 @@
 			<!-- wp:group {"layout":{"type":"constrained","wideSize":"480px","justifyContent":"left"}} -->
 			<div class="wp-block-group">
 				<!-- wp:heading {"anchor":"text-on-left-image-on-right","className":"wp-block-heading","fontSize":"x-large"} -->
-				<h2 class="wp-block-heading has-x-large-font-size" id="text-on-left-image-on-right"><?php echo esc_html__( 'Welcome to Frost', 'strata-store' ); ?></h2>
+				<h2 class="wp-block-heading has-x-large-font-size" id="text-on-left-image-on-right"><?php echo esc_html__( 'Welcome to StrataWP', 'strata-store' ); ?></h2>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph -->
-				<p><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites.', 'strata-store' ); ?></p>
+				<p><?php echo esc_html__( 'With its clean, minimal design and powerful feature set, StrataWP enables agencies to build stylish and sophisticated WordPress websites.', 'strata-store' ); ?></p>
 				<!-- /wp:paragraph -->
 				<!-- wp:buttons -->
 					<div class="wp-block-buttons">

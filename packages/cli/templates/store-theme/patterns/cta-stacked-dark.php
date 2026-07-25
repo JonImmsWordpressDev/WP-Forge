@@ -13,7 +13,7 @@
 		<h2 class="wp-block-heading has-text-align-center has-x-large-font-size"><?php echo esc_html__( 'Call-to-Action', 'strata-store' ); ?></h2>
 		<!-- /wp:heading -->
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"lineHeight":"1.5"}}} -->
-		<p class="has-text-align-center" style="line-height:1.5"><?php echo esc_html__( 'With its minimal design and powerful feature set, Frost enables agencies to build sophisticated websites.', 'strata-store' ); ?></p>
+		<p class="has-text-align-center" style="line-height:1.5"><?php echo esc_html__( 'With its minimal design and powerful feature set, StrataWP enables agencies to build sophisticated websites.', 'strata-store' ); ?></p>
 		<!-- /wp:paragraph -->
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons">

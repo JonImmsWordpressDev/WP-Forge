@@ -15,7 +15,7 @@
 			<p class="has-max-72-font-size" style="line-height:1">“</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
-			<p style="margin-top:0"><?php echo esc_html__( 'With its clean, minimal design and powerful features, Frost enables agencies to build cool websites.', 'strata-advanced' ); ?></p>
+			<p style="margin-top:0"><?php echo esc_html__( 'With its clean, minimal design and powerful features, StrataWP enables agencies to build cool websites.', 'strata-advanced' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:group {"style":{"spacing":{"blockGap":"15px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
@@ -42,7 +42,7 @@
 			<p class="has-max-72-font-size" style="line-height:1">“</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
-			<p style="margin-top:0"><?php echo esc_html__( 'With its clean, minimal design and powerful features, Frost enables agencies to build cool websites.', 'strata-advanced' ); ?></p>
+			<p style="margin-top:0"><?php echo esc_html__( 'With its clean, minimal design and powerful features, StrataWP enables agencies to build cool websites.', 'strata-advanced' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:group {"style":{"spacing":{"blockGap":"15px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
@@ -69,7 +69,7 @@
 			<p class="has-max-72-font-size" style="line-height:1">“</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0"}}}} -->
-			<p style="margin-top:0"><?php echo esc_html__( 'With its clean, minimal design and powerful features, Frost enables agencies to build cool websites.', 'strata-advanced' ); ?></p>
+			<p style="margin-top:0"><?php echo esc_html__( 'With its clean, minimal design and powerful features, StrataWP enables agencies to build cool websites.', 'strata-advanced' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:group {"style":{"spacing":{"blockGap":"15px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
