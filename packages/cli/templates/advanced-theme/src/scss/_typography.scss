@@ -2,42 +2,22 @@
  * Typography Styles
  */
 
-// Headings - use heading font
+// Headings — sizes, weight, and line-height come from theme.json
+// (styles.elements.heading / h1–h6); only rhythm is set here.
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-text);
   margin-top: 0;
 }
 
-h1 {
-  font-size: 2.5rem;
+h1, h2 {
   margin-bottom: 1rem;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 0.875rem;
-}
-
-h3 {
-  font-size: 1.75rem;
+h3, h4 {
   margin-bottom: 0.75rem;
 }
 
-h4 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-h5 {
-  font-size: 1.25rem;
-  margin-bottom: 0.625rem;
-}
-
-h6 {
-  font-size: 1.125rem;
+h5, h6 {
   margin-bottom: 0.625rem;
 }
 
@@ -47,15 +27,10 @@ p {
   margin-bottom: 1rem;
 }
 
-// Links
+// Links — colors come from theme.json (styles.elements.link)
 a {
-  color: var(--color-primary);
   text-decoration: underline;
   transition: color 0.2s ease;
-
-  &:hover {
-    color: var(--color-secondary);
-  }
 }
 
 // Lists

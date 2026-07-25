@@ -1,30 +1,36 @@
 /**
  * CSS Custom Properties & Variables
  *
- * These are fallback values. The Font component will inject
- * the selected Google Fonts via inline styles in wp_head.
+ * Every token aliases a theme.json-generated preset (--wp--preset--*), so
+ * the palette and typography a theme author defines in theme.json flow
+ * through to all SCSS consumers automatically. Hardcoding values here
+ * would shadow theme.json (issue #29).
  */
 
 :root {
-  // Design System Colors
-  // Note: WordPress automatically generates CSS variables from theme.json:
-  // --wp--preset--color--base, --wp--preset--color--contrast, etc.
-  // These are simplified fallbacks for backwards compatibility
+  // Design System Colors — aliases of the theme.json palette
+  --color-base: var(--wp--preset--color--base);           // Background
+  --color-contrast: var(--wp--preset--color--contrast);   // Text
+  --color-primary: var(--wp--preset--color--primary);     // Brand color
+  --color-secondary: var(--wp--preset--color--secondary); // Accent
+  --color-neutral: var(--wp--preset--color--neutral);     // Borders/subtle backgrounds
 
-  --color-base: #ffffff;        // Background
-  --color-contrast: #000000;    // Text
-  --color-primary: #0000ff;     // Brand color
-  --color-secondary: #000099;   // Accent
-  --color-neutral: #eeeeee;     // Borders/subtle backgrounds
+  // Semantic tokens consumed by the partials
+  --color-accent: var(--wp--preset--color--primary);      // Focus outlines, highlights
+  --color-border: var(--wp--preset--color--neutral);
+  --color-text-light: color-mix(in srgb, var(--wp--preset--color--contrast) 70%, var(--wp--preset--color--base));
 
   // Legacy aliases
   --color-text: var(--color-contrast);
   --color-bg: var(--color-base);
   --color-bg-alt: var(--color-neutral);
 
-  // Typography
-  // Font variables are injected by the Fonts component via PHP
-  // WordPress also generates: --wp--preset--font-family--system-font
+  // Typography — defaults for the tokens the partials consume. The Fonts
+  // component overrides these at wp_head when explicitly enabled.
+  --font-heading: var(--wp--preset--font-family--system-font);
+  --font-body: var(--wp--preset--font-family--system-font);
+  --font-size-base: var(--wp--preset--font-size--medium);
+  --line-height-base: var(--wp--custom--line-height--body);
   --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 
   // Spacing
