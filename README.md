@@ -45,13 +45,13 @@ Scaffold a full theme with one command, edit PHP/SCSS/TypeScript and see changes
 
 Make sure the following are installed before you begin.
 
-| Requirement | Version | Notes |
-| --- | --- | --- |
-| **Node.js** | 18 or higher | `engines` requires `node >=18.18`. |
-| **pnpm** | 8 or higher | Recommended package manager (`npm` also works). |
-| **PHP** | 8.1 or higher | |
-| **WordPress** | 6.7 or higher | |
-| **A local WordPress environment** | — | [Local by Flywheel](https://localwp.com/), [MAMP](https://www.mamp.info/), Docker, etc. |
+| Requirement                       | Version       | Notes                                                                                   |
+| --------------------------------- | ------------- | --------------------------------------------------------------------------------------- |
+| **Node.js**                       | 18 or higher  | `engines` requires `node >=18.18`.                                                      |
+| **pnpm**                          | 8 or higher   | Recommended package manager (`npm` also works).                                         |
+| **PHP**                           | 8.1 or higher |                                                                                         |
+| **WordPress**                     | 6.7 or higher |                                                                                         |
+| **A local WordPress environment** | —             | [Local by Flywheel](https://localwp.com/), [MAMP](https://www.mamp.info/), Docker, etc. |
 
 Install pnpm if you don't have it:
 
@@ -89,6 +89,7 @@ The interactive wizard guides you through:
 - **WordPress linking** — auto-detects Local by Flywheel (`~/Local Sites/`) and MAMP (`/Applications/MAMP/htdocs/`) installs and creates the symlink for you
 
 > **Note:** If no WordPress install is detected, link the theme manually:
+>
 > ```bash
 > ln -s "$(pwd)" /path/to/wordpress/wp-content/themes/my-theme
 > ```
@@ -119,22 +120,22 @@ For a fuller walkthrough (including running the bundled example themes), see the
 
 Each capability links to its in-repo guide and matching wiki page.
 
-| Task | Command(s) | Learn more |
-| --- | --- | --- |
-| **Run the dev loop (HMR)** | `pnpm dev` | [Core Concepts](https://github.com/JonImmsWordpressDev/strataWP/wiki/Core-Concepts) |
-| **Build for production** | `pnpm build` | [Deployment](https://github.com/JonImmsWordpressDev/strataWP/wiki/Deployment) |
-| **Generate a Gutenberg block** | `stratawp block:new <name>` | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
-| **Generate a PHP component** | `stratawp component:new <name>` | [Core Concepts](https://github.com/JonImmsWordpressDev/strataWP/wiki/Core-Concepts) |
-| **Generate an FSE template** | `stratawp template:new <name>` | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
-| **Generate a template part** | `stratawp part:new <name>` | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
-| **Set up a design system** | `stratawp design-system:setup tailwind` | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
-| **Browse components visually** | `stratawp explorer` | [Architecture & Packages](https://github.com/JonImmsWordpressDev/strataWP/wiki/Architecture-and-Packages) |
-| **Run tests** | `pnpm test` · `pnpm test:e2e` | [Testing & Quality](https://github.com/JonImmsWordpressDev/strataWP/wiki/Testing-and-Quality) |
-| **Build a headless front-end** | `pnpm add @stratawp/headless` | [Headless WordPress](https://github.com/JonImmsWordpressDev/strataWP/wiki/Headless-WordPress) |
-| **Deploy to a server** | `stratawp deploy:setup` · `stratawp deploy production` | [Deployment](https://github.com/JonImmsWordpressDev/strataWP/wiki/Deployment) |
-| **Sync databases & templates** | `stratawp sync:db:pull production` · `stratawp sync:templates production --all` | [Environment Sync & Rollback](https://github.com/JonImmsWordpressDev/strataWP/wiki/Environment-Sync-and-Rollback) |
-| **Roll back a deployment** | `stratawp rollback:list` · `stratawp rollback:diff 1 2` | [Environment Sync & Rollback](https://github.com/JonImmsWordpressDev/strataWP/wiki/Environment-Sync-and-Rollback) |
-| **Update the CLI & packages** | `stratawp update` | [CLI Reference](https://github.com/JonImmsWordpressDev/strataWP/wiki/CLI-Reference) |
+| Task                           | Command(s)                                                                      | Learn more                                                                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Run the dev loop (HMR)**     | `pnpm dev`                                                                      | [Core Concepts](https://github.com/JonImmsWordpressDev/strataWP/wiki/Core-Concepts)                                          |
+| **Build for production**       | `pnpm build`                                                                    | [Deployment](https://github.com/JonImmsWordpressDev/strataWP/wiki/Deployment)                                                |
+| **Generate a Gutenberg block** | `stratawp block:new <name>`                                                     | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
+| **Generate a PHP component**   | `stratawp component:new <name>`                                                 | [Core Concepts](https://github.com/JonImmsWordpressDev/strataWP/wiki/Core-Concepts)                                          |
+| **Generate an FSE template**   | `stratawp template:new <name>`                                                  | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
+| **Generate a template part**   | `stratawp part:new <name>`                                                      | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
+| **Set up a design system**     | `stratawp design-system:setup tailwind`                                         | [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) |
+| **Browse components visually** | `stratawp explorer`                                                             | [Architecture & Packages](https://github.com/JonImmsWordpressDev/strataWP/wiki/Architecture-and-Packages)                    |
+| **Run tests**                  | `pnpm test` · `pnpm test:e2e`                                                   | [Testing & Quality](https://github.com/JonImmsWordpressDev/strataWP/wiki/Testing-and-Quality)                                |
+| **Build a headless front-end** | `pnpm add @stratawp/headless`                                                   | [Headless WordPress](https://github.com/JonImmsWordpressDev/strataWP/wiki/Headless-WordPress)                                |
+| **Deploy to a server**         | `stratawp deploy:setup` · `stratawp deploy production`                          | [Deployment](https://github.com/JonImmsWordpressDev/strataWP/wiki/Deployment)                                                |
+| **Sync databases & templates** | `stratawp sync:db:pull production` · `stratawp sync:templates production --all` | [Environment Sync & Rollback](https://github.com/JonImmsWordpressDev/strataWP/wiki/Environment-Sync-and-Rollback)            |
+| **Roll back a deployment**     | `stratawp rollback:list` · `stratawp rollback:diff 1 2`                         | [Environment Sync & Rollback](https://github.com/JonImmsWordpressDev/strataWP/wiki/Environment-Sync-and-Rollback)            |
+| **Update the CLI & packages**  | `stratawp update`                                                               | [CLI Reference](https://github.com/JonImmsWordpressDev/strataWP/wiki/CLI-Reference)                                          |
 
 > **Tip:** The **[Cheat Sheet](./CHEAT_SHEET.md)** lists every command and flag in one place.
 
@@ -206,11 +207,11 @@ See [Project Structure](https://github.com/JonImmsWordpressDev/strataWP/wiki/Pro
 
 ## Example Themes
 
-| Theme | Best for | Highlights |
-| --- | --- | --- |
-| **[Basic](./examples/basic-theme)** | Blogs, portfolios, business sites, learning StrataWP | [Frost](https://frostwp.com/) design system, 50 block patterns, 9 templates, light/dark variants, Google Fonts typography |
-| **[Advanced](./examples/advanced-theme)** | Complex / production sites and agencies | 4 Custom Post Types (Portfolio, Team, Testimonials, Case Studies), custom blocks, Advanced Layouts + Customizer, Meta Boxes system |
-| **[Store](./examples/store-theme)** | WooCommerce e-commerce | WooCommerce templates (shop, product, cart, checkout), Featured Products & Product Categories blocks, e-commerce patterns, mobile-optimized |
+| Theme                                     | Best for                                             | Highlights                                                                                                                                  |
+| ----------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[Basic](./examples/basic-theme)**       | Blogs, portfolios, business sites, learning StrataWP | [Frost](https://frostwp.com/) design system, 50 block patterns, 9 templates, light/dark variants, Google Fonts typography                   |
+| **[Advanced](./examples/advanced-theme)** | Complex / production sites and agencies              | 4 Custom Post Types (Portfolio, Team, Testimonials, Case Studies), custom blocks, Advanced Layouts + Customizer, Meta Boxes system          |
+| **[Store](./examples/store-theme)**       | WooCommerce e-commerce                               | WooCommerce templates (shop, product, cart, checkout), Featured Products & Product Categories blocks, e-commerce patterns, mobile-optimized |
 
 Learn how to run and customize them on the [Example Themes](https://github.com/JonImmsWordpressDev/strataWP/wiki/Example-Themes) wiki page.
 
@@ -218,34 +219,34 @@ Learn how to run and customize them on the [Example Themes](https://github.com/J
 
 ### Wiki (guides & reference)
 
-| Page | What it covers |
-| --- | --- |
-| [Home](https://github.com/JonImmsWordpressDev/strataWP/wiki/Home) | Wiki landing page and index |
-| [Installation & Quick Start](https://github.com/JonImmsWordpressDev/strataWP/wiki/Installation-and-Quick-Start) | Set up and create your first theme |
-| [Core Concepts](https://github.com/JonImmsWordpressDev/strataWP/wiki/Core-Concepts) | Components, hooks, HMR, and the PHP framework |
-| [Project Structure](https://github.com/JonImmsWordpressDev/strataWP/wiki/Project-Structure) | Monorepo and theme layout |
-| [CLI Reference](https://github.com/JonImmsWordpressDev/strataWP/wiki/CLI-Reference) | Every command and flag |
-| [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) | Scaffolding and styling |
-| [Example Themes](https://github.com/JonImmsWordpressDev/strataWP/wiki/Example-Themes) | Basic, Advanced, and Store walkthroughs |
-| [Headless WordPress](https://github.com/JonImmsWordpressDev/strataWP/wiki/Headless-WordPress) | REST client, React hooks, Next.js |
-| [Testing & Quality](https://github.com/JonImmsWordpressDev/strataWP/wiki/Testing-and-Quality) | Vitest, Playwright, custom matchers |
-| [Deployment](https://github.com/JonImmsWordpressDev/strataWP/wiki/Deployment) | SFTP/FTP/SSH deployment |
-| [Environment Sync & Rollback](https://github.com/JonImmsWordpressDev/strataWP/wiki/Environment-Sync-and-Rollback) | DB sync, snapshots, rollback |
-| [Architecture & Packages](https://github.com/JonImmsWordpressDev/strataWP/wiki/Architecture-and-Packages) | How the packages fit together |
-| [AI, Agent Skills & MCP](https://github.com/JonImmsWordpressDev/strataWP/wiki/AI-Agent-Skills-and-MCP) | Agent skills and the MCP server |
-| [Contributing & Releases](https://github.com/JonImmsWordpressDev/strataWP/wiki/Contributing-and-Releases) | Contributing workflow and releases |
-| [FAQ & Troubleshooting](https://github.com/JonImmsWordpressDev/strataWP/wiki/FAQ-and-Troubleshooting) | Common issues and fixes |
+| Page                                                                                                                         | What it covers                                |
+| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| [Home](https://github.com/JonImmsWordpressDev/strataWP/wiki/Home)                                                            | Wiki landing page and index                   |
+| [Installation & Quick Start](https://github.com/JonImmsWordpressDev/strataWP/wiki/Installation-and-Quick-Start)              | Set up and create your first theme            |
+| [Core Concepts](https://github.com/JonImmsWordpressDev/strataWP/wiki/Core-Concepts)                                          | Components, hooks, HMR, and the PHP framework |
+| [Project Structure](https://github.com/JonImmsWordpressDev/strataWP/wiki/Project-Structure)                                  | Monorepo and theme layout                     |
+| [CLI Reference](https://github.com/JonImmsWordpressDev/strataWP/wiki/CLI-Reference)                                          | Every command and flag                        |
+| [Blocks, Patterns & Design Systems](https://github.com/JonImmsWordpressDev/strataWP/wiki/Blocks-Patterns-and-Design-Systems) | Scaffolding and styling                       |
+| [Example Themes](https://github.com/JonImmsWordpressDev/strataWP/wiki/Example-Themes)                                        | Basic, Advanced, and Store walkthroughs       |
+| [Headless WordPress](https://github.com/JonImmsWordpressDev/strataWP/wiki/Headless-WordPress)                                | REST client, React hooks, Next.js             |
+| [Testing & Quality](https://github.com/JonImmsWordpressDev/strataWP/wiki/Testing-and-Quality)                                | Vitest, Playwright, custom matchers           |
+| [Deployment](https://github.com/JonImmsWordpressDev/strataWP/wiki/Deployment)                                                | SFTP/FTP/SSH deployment                       |
+| [Environment Sync & Rollback](https://github.com/JonImmsWordpressDev/strataWP/wiki/Environment-Sync-and-Rollback)            | DB sync, snapshots, rollback                  |
+| [Architecture & Packages](https://github.com/JonImmsWordpressDev/strataWP/wiki/Architecture-and-Packages)                    | How the packages fit together                 |
+| [AI, Agent Skills & MCP](https://github.com/JonImmsWordpressDev/strataWP/wiki/AI-Agent-Skills-and-MCP)                       | Agent skills and the MCP server               |
+| [Contributing & Releases](https://github.com/JonImmsWordpressDev/strataWP/wiki/Contributing-and-Releases)                    | Contributing workflow and releases            |
+| [FAQ & Troubleshooting](https://github.com/JonImmsWordpressDev/strataWP/wiki/FAQ-and-Troubleshooting)                        | Common issues and fixes                       |
 
 ### In-repo guides
 
-| Document | Description |
-| --- | --- |
-| [Getting Started Guide](./GETTING_STARTED.md) | Step-by-step tutorial for beginners |
-| [Cheat Sheet](./CHEAT_SHEET.md) | Quick reference for all commands |
-| [Deployment Guide](./docs/deployment/getting-started.md) | Basic deployment with SFTP/FTP/SSH |
+| Document                                                        | Description                                    |
+| --------------------------------------------------------------- | ---------------------------------------------- |
+| [Getting Started Guide](./GETTING_STARTED.md)                   | Step-by-step tutorial for beginners            |
+| [Cheat Sheet](./CHEAT_SHEET.md)                                 | Quick reference for all commands               |
+| [Deployment Guide](./docs/deployment/getting-started.md)        | Basic deployment with SFTP/FTP/SSH             |
 | [Advanced Deployment](./docs/deployment/ADVANCED-DEPLOYMENT.md) | SSH keys, FSE template sync, plugin deployment |
-| [Roadmap](./ROADMAP.md) | Where StrataWP is heading |
-| [Changelog](./CHANGELOG.md) | Version history and release notes |
+| [Roadmap](./ROADMAP.md)                                         | Where StrataWP is heading                      |
+| [Changelog](./CHANGELOG.md)                                     | Version history and release notes              |
 
 ## Development
 
@@ -314,15 +315,15 @@ Inspired by and built on:
 
 ## Published Packages
 
-| Package | Description |
-| --- | --- |
-| [create-stratawp](https://www.npmjs.com/package/create-stratawp) | One-command scaffolder — what `npx create-stratawp` runs |
-| [@stratawp/cli](https://www.npmjs.com/package/@stratawp/cli) | CLI tool (provides the `stratawp` command and bundles `create-stratawp`) |
-| [@stratawp/vite-plugin](https://www.npmjs.com/package/@stratawp/vite-plugin) | Vite plugin for WordPress |
-| [@stratawp/sync](https://www.npmjs.com/package/@stratawp/sync) | Environment sync, snapshots, rollback |
-| [@stratawp/testing](https://www.npmjs.com/package/@stratawp/testing) | Testing utilities (Vitest, Playwright) |
-| [@stratawp/headless](https://www.npmjs.com/package/@stratawp/headless) | Headless WordPress (REST client, React hooks, Next.js) |
-| [@stratawp/explorer](https://www.npmjs.com/package/@stratawp/explorer) | Component explorer |
+| Package                                                                      | Description                                                              |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [create-stratawp](https://www.npmjs.com/package/create-stratawp)             | One-command scaffolder — what `npx create-stratawp` runs                 |
+| [@stratawp/cli](https://www.npmjs.com/package/@stratawp/cli)                 | CLI tool (provides the `stratawp` command and bundles `create-stratawp`) |
+| [@stratawp/vite-plugin](https://www.npmjs.com/package/@stratawp/vite-plugin) | Vite plugin for WordPress                                                |
+| [@stratawp/sync](https://www.npmjs.com/package/@stratawp/sync)               | Environment sync, snapshots, rollback                                    |
+| [@stratawp/testing](https://www.npmjs.com/package/@stratawp/testing)         | Testing utilities (Vitest, Playwright)                                   |
+| [@stratawp/headless](https://www.npmjs.com/package/@stratawp/headless)       | Headless WordPress (REST client, React hooks, Next.js)                   |
+| [@stratawp/explorer](https://www.npmjs.com/package/@stratawp/explorer)       | Component explorer                                                       |
 
 The repository also includes `@stratawp/core` (the PHP framework) and `@stratawp/mcp` (an MCP server that exposes the scaffolding generators to AI agents). See [Architecture & Packages](https://github.com/JonImmsWordpressDev/strataWP/wiki/Architecture-and-Packages) for how everything fits together.
 

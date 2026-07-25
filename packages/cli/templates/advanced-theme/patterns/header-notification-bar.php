@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Header notification bar with text, button.
- * Slug: strata-basic/header-notification-bar
+ * Slug: strata-advanced/header-notification-bar
  * Categories: header
  * Block Types: core/template-part/header
  */

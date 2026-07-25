@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Boxes with heading, text, button.
- * Slug: strata-basic/boxes-two-dark
+ * Slug: strata-store/boxes-two-dark
  * Categories: featured
  */
 ?>

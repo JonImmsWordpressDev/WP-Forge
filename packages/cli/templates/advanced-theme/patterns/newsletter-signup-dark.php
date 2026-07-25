@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Box with heading, text.
- * Slug: strata-basic/newsletter-signup-dark
+ * Slug: strata-advanced/newsletter-signup-dark
  * Categories: call-to-action
  */
 ?>

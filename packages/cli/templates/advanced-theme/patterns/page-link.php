@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Sample link page.
- * Slug: strata-basic/page-link
+ * Slug: strata-advanced/page-link
  * Categories: frost-page
  */
 ?>

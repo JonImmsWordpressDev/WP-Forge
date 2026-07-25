@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Comments section and form
- * Slug: strata-basic/comments
+ * Slug: strata-store/comments
  * Inserter: no
  */
 ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Box with image, heading, text, button.
- * Slug: strata-basic/product-box
+ * Slug: strata-advanced/product-box
  * Categories: call-to-action
  */
 ?>

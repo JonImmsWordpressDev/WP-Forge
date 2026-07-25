@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Testimonials with text, image.
- * Slug: strata-basic/testimonials-image
+ * Slug: strata-store/testimonials-image
  * Categories: testimonials
  */
 ?>
