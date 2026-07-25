@@ -50,6 +50,60 @@ final class AssetsTest extends TestCase {
         $this->addToAssertionCount(1);
     }
 
+    public function test_editor_css_loads_from_js_entry_css_array(): void {
+        Functions\when('get_template_directory_uri')->justReturn('https://example.test/t');
+        Functions\when('get_template_directory')->justReturn('/srv/t');
+        Functions\when('wp_style_add_data')->justReturn(true);
+        // The scaffolded vite.config defines editor as a JS entry, so the
+        // compiled CSS lives in the entry's `css` array — no standalone
+        // src/css/editor.css manifest key exists (issue #26).
+        $assets = new FakeManifestAssets();
+        $assets->fakeManifest = array(
+            'src/js/editor.ts' => array(
+                'file' => 'js/editor.ABC.js',
+                'css'  => array('css/editor.DEF.css'),
+            ),
+        );
+
+        Functions\expect('wp_enqueue_style')->once()
+            ->with('stratawp-editor-0', 'https://example.test/t/dist/css/editor.DEF.css', array(), '1.0.0');
+        // Styles only: Assets has never loaded editor JS in admin, and this
+        // fix must not start to.
+        Functions\expect('wp_enqueue_script')->never();
+
+        $assets->enqueue_editor_assets();
+        $this->addToAssertionCount(1);
+    }
+
+    public function test_editor_legacy_standalone_css_key_still_loads(): void {
+        Functions\when('get_template_directory_uri')->justReturn('https://example.test/t');
+        Functions\when('get_template_directory')->justReturn('/srv/t');
+        Functions\when('wp_style_add_data')->justReturn(true);
+        $assets = new FakeManifestAssets();
+        $assets->fakeManifest = array(
+            'src/css/editor.css' => array('file' => 'css/editor.OLD.css'),
+        );
+
+        Functions\expect('wp_enqueue_style')->once()
+            ->with('stratawp-editor', 'https://example.test/t/dist/css/editor.OLD.css', array(), '1.0.0');
+
+        $assets->enqueue_editor_assets();
+        $this->addToAssertionCount(1);
+    }
+
+    public function test_editor_enqueues_nothing_when_no_editor_entries_exist(): void {
+        $assets = new FakeManifestAssets();
+        $assets->fakeManifest = array(
+            'src/js/main.ts' => array('file' => 'js/main.ABC.js'),
+        );
+
+        Functions\expect('wp_enqueue_style')->never();
+        Functions\expect('wp_enqueue_script')->never();
+
+        $assets->enqueue_editor_assets();
+        $this->addToAssertionCount(1);
+    }
+
     public function test_script_and_css_get_precache_data(): void {
         Functions\when('get_template_directory_uri')->justReturn('https://example.test/t');
         Functions\when('get_template_directory')->justReturn('/srv/t');

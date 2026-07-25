@@ -71,11 +71,22 @@ class Assets implements ComponentInterface {
 	public function enqueue_editor_assets(): void {
 		$manifest = $this->get_manifest();
 
-		if ( ! $manifest || ! isset( $manifest['src/css/editor.css'] ) ) {
+		if ( ! $manifest ) {
 			return;
 		}
 
-		$this->enqueue_from_manifest( 'stratawp-editor', 'src/css/editor.css', 'style' );
+		// Standalone CSS entry, for themes that list src/css/editor.css as a Vite input.
+		if ( isset( $manifest['src/css/editor.css'] ) ) {
+			$this->enqueue_from_manifest( 'stratawp-editor', 'src/css/editor.css', 'style' );
+		}
+
+		// The scaffolded vite.config defines editor as a JS entry, so the compiled
+		// CSS lands in the entry's `css` array rather than a standalone manifest
+		// key. Styles only — Assets does not load editor JS in admin.
+		if ( isset( $manifest['src/js/editor.ts'] ) ) {
+			$entry = $manifest['src/js/editor.ts'];
+			$this->enqueue_entry_css( 'stratawp-editor', $entry, $this->entry_version( $entry ) );
+		}
 	}
 
 	/**
@@ -92,12 +103,9 @@ class Assets implements ComponentInterface {
 			return;
 		}
 
-		$entry = $manifest[ $src ];
-		$url   = get_template_directory_uri() . '/dist/' . $entry['file'];
-		$path  = get_template_directory() . '/dist/' . $entry['file'];
-
-		// Get version from file modification time
-		$version = file_exists( $path ) ? filemtime( $path ) : '1.0.0';
+		$entry   = $manifest[ $src ];
+		$url     = get_template_directory_uri() . '/dist/' . $entry['file'];
+		$version = $this->entry_version( $entry );
 
 		// Get WordPress dependencies
 		$deps = $entry['dependencies'] ?? array();
@@ -105,36 +113,50 @@ class Assets implements ComponentInterface {
 		if ( 'script' === $type ) {
 			wp_enqueue_script( $handle, $url, $deps, $version, true );
 			wp_script_add_data( $handle, 'precache', true );
-
-			// Vite splits an entry's CSS into the entry's `css` array; enqueue it
-			// so the compiled stylesheet actually loads (it is not a separate
-			// manifest key).
-			if ( ! empty( $entry['css'] ) ) {
-				foreach ( $entry['css'] as $index => $css_file ) {
-					$css_url = get_template_directory_uri() . '/dist/' . $css_file;
-					wp_enqueue_style( $handle . '-' . $index, $css_url, array(), $version );
-					// 'precache' is a PWA service-worker convention, not in core stubs.
-					// @phpstan-ignore-next-line
-					wp_style_add_data( $handle . '-' . $index, 'precache', true );
-				}
-			}
 		} else {
 			wp_enqueue_style( $handle, $url, $deps, $version );
 			// 'precache' is a PWA service-worker convention, not in core stubs.
 			// @phpstan-ignore-next-line
 			wp_style_add_data( $handle, 'precache', true );
-
-			// Enqueue associated CSS files
-			if ( ! empty( $entry['css'] ) ) {
-				foreach ( $entry['css'] as $index => $css_file ) {
-					$css_url = get_template_directory_uri() . '/dist/' . $css_file;
-					wp_enqueue_style( $handle . '-' . $index, $css_url, array(), $version );
-					// 'precache' is a PWA service-worker convention, not in core stubs.
-					// @phpstan-ignore-next-line
-					wp_style_add_data( $handle . '-' . $index, 'precache', true );
-				}
-			}
 		}
+
+		// Vite splits an entry's CSS into the entry's `css` array; enqueue it
+		// so the compiled stylesheet actually loads (it is not a separate
+		// manifest key).
+		$this->enqueue_entry_css( $handle, $entry, $version );
+	}
+
+	/**
+	 * Enqueue every stylesheet in a manifest entry's `css` array
+	 *
+	 * @param string     $handle  Base handle; each file gets an index suffix.
+	 * @param array      $entry   Manifest entry.
+	 * @param string|int $version Asset version.
+	 */
+	protected function enqueue_entry_css( string $handle, array $entry, $version ): void {
+		if ( empty( $entry['css'] ) ) {
+			return;
+		}
+
+		foreach ( $entry['css'] as $index => $css_file ) {
+			$css_url = get_template_directory_uri() . '/dist/' . $css_file;
+			wp_enqueue_style( $handle . '-' . $index, $css_url, array(), $version );
+			// 'precache' is a PWA service-worker convention, not in core stubs.
+			// @phpstan-ignore-next-line
+			wp_style_add_data( $handle . '-' . $index, 'precache', true );
+		}
+	}
+
+	/**
+	 * Version for a manifest entry, from its built file's modification time
+	 *
+	 * @param array $entry Manifest entry.
+	 * @return string|int
+	 */
+	protected function entry_version( array $entry ) {
+		$path = get_template_directory() . '/dist/' . $entry['file'];
+
+		return file_exists( $path ) ? filemtime( $path ) : '1.0.0';
 	}
 
 	/**
