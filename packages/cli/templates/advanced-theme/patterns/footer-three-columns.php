@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Footer with text, links, buttons.
- * Slug: strata-basic/footer-three-columns
+ * Slug: strata-advanced/footer-three-columns
  * Categories: footer
  * Block Types: core/template-part/footer
  */

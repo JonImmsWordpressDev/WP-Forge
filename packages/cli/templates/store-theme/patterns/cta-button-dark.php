@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Call-to-action with text, button.
- * Slug: strata-basic/cta-button-dark
+ * Slug: strata-store/cta-button-dark
  * Categories: call-to-action
  */
 ?>

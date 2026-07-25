@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Team with image, text, link.
- * Slug: strata-basic/team-four-columns
+ * Slug: strata-store/team-four-columns
  * Categories: featured
  */
 ?>

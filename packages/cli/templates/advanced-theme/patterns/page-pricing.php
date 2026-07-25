@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Sample pricing page.
- * Slug: strata-basic/page-pricing
+ * Slug: strata-advanced/page-pricing
  * Categories: frost-page
  */
 ?>

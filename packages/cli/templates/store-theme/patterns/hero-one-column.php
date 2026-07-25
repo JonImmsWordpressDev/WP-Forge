@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Section with image, text, buttons.
- * Slug: strata-basic/hero-one-column
+ * Slug: strata-store/hero-one-column
  * Categories: featured
  */
 ?>

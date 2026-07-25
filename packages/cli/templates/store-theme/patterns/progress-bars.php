@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Progres bars with text, spacers.
- * Slug: strata-basic/progress-bars
+ * Slug: strata-store/progress-bars
  * Categories: featured
  */
 ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Footer with heading, text, button.
- * Slug: strata-basic/footer-stacked
+ * Slug: strata-advanced/footer-stacked
  * Categories: footer
  * Block Types: core/template-part/footer
  */

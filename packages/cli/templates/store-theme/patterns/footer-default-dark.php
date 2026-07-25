@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Footer with text, links.
- * Slug: strata-basic/footer-default-dark
+ * Slug: strata-store/footer-default-dark
  * Categories: footer
  * Block Types: core/template-part/footer
  */

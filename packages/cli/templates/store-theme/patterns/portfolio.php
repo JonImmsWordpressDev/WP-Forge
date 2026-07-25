@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Portfolio with heading, text, images.
- * Slug: strata-basic/portfolio
+ * Slug: strata-store/portfolio
  * Categories: featured
  */
 ?>

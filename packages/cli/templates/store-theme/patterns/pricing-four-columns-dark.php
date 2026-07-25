@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Pricing table with heading, list, buttons.
- * Slug: strata-basic/pricing-four-columns-dark
+ * Slug: strata-store/pricing-four-columns-dark
  * Categories: frost-pricing
  */
 ?>

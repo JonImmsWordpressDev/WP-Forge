@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Sample home page.
- * Slug: strata-basic/page-home
+ * Slug: strata-store/page-home
  * Categories: frost-page
  */
 ?>

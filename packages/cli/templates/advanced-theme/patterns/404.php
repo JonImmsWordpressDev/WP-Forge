@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 404 error content.
- * Slug: strata-basic/404
+ * Slug: strata-advanced/404
  * Inserter: no
  */
 ?>
