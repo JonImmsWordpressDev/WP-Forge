@@ -7,7 +7,6 @@
 // Button & CTA Styles
 .wp-block-button__link {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none !important;
   position: relative;
   overflow: hidden;
 
@@ -29,7 +28,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(29, 8, 189, 0.3);
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
   }
 
   &:active {

@@ -157,6 +157,52 @@ describe.each(Object.entries(TEMPLATES))('%s template', (templateName, ownToken)
     expect(offenders).toEqual([])
   })
 
+  it('defines every custom property its SCSS consumes', () => {
+    // var(--color-accent) with no definition anywhere resolves to nothing —
+    // the focus outline built on it was invisible, a WCAG 2.4.7 failure
+    // (issue #29). WordPress-generated properties (--wp--*) are exempt.
+    const defined = new Set<string>()
+    const usages: Array<{ file: string; token: string }> = []
+    for (const file of listTextFiles(path.join(templatePath, 'src', 'scss'))) {
+      const content = fs.readFileSync(file, 'utf-8')
+      for (const match of content.matchAll(/(?:^|[\s{;])--([a-z0-9-]+)\s*:/gm)) {
+        defined.add(match[1])
+      }
+      for (const match of content.matchAll(/var\(\s*--([a-z0-9-]+)/g)) {
+        usages.push({ file: path.relative(templatePath, file), token: match[1] })
+      }
+    }
+
+    const offenders = [
+      ...new Set(
+        usages
+          .filter((u) => !u.token.startsWith('wp--') && !defined.has(u.token))
+          .map((u) => `${u.file}: --${u.token}`)
+      ),
+    ]
+
+    expect(offenders).toEqual([])
+  })
+
+  it('aliases the legacy color tokens to theme.json presets, not literals', () => {
+    // Hardcoded values here shadow whatever palette the user defines in
+    // theme.json — the blue-link default scaffold look (issue #29).
+    const variables = fs.readFileSync(
+      path.join(templatePath, 'src', 'scss', '_variables.scss'),
+      'utf-8'
+    )
+
+    const offenders: string[] = []
+    for (const token of ['base', 'contrast', 'primary', 'secondary', 'neutral']) {
+      const match = variables.match(new RegExp(`--color-${token}\\s*:\\s*([^;]+);`))
+      if (!match || !match[1].includes(`--wp--preset--color--${token}`)) {
+        offenders.push(`--color-${token}: ${match ? match[1].trim() : '(missing)'}`)
+      }
+    }
+
+    expect(offenders).toEqual([])
+  })
+
   it('contains no slug tokens from other templates', () => {
     const foreignTokens = Object.values(TEMPLATES)
       .filter((token) => token !== ownToken)
