@@ -5,10 +5,16 @@
  * Manages font loading with support for Google Fonts API or self-hosted fonts.
  *
  * Font Loading Modes:
- * - 'google-api': Load fonts from Google Fonts API (default)
+ * - 'google-api': Load fonts from Google Fonts API
  * - 'self-hosted': Skip Google Fonts loading, output CSS variables only
  *                  (use with @fontsource packages for best performance)
  * - 'disabled': Component outputs nothing (fully manual font management)
+ *
+ * Until a mode is explicitly saved, the component behaves as 'disabled' on
+ * the frontend: no Google Fonts request and no CSS variable output, so a
+ * theme's own fonts (e.g. theme.json fontFace) are never overridden by
+ * defaults. The settings page is always registered so the feature can be
+ * enabled from the admin.
  *
  * @package StrataWP
  */
@@ -51,7 +57,13 @@ class Fonts implements ComponentInterface {
 	 * @return string
 	 */
 	public function get_font_loading_mode(): string {
-		$mode = get_option( 'stratawp_font_loading_mode', self::MODE_GOOGLE_API );
+		$saved = get_option( 'stratawp_font_loading_mode', '' );
+
+		// Never-saved (or invalid) settings behave as disabled: a fresh site
+		// must not call Google or override theme fonts until typography is
+		// explicitly configured.
+		$valid = array( self::MODE_GOOGLE_API, self::MODE_SELF_HOSTED, self::MODE_DISABLED );
+		$mode  = in_array( $saved, $valid, true ) ? $saved : self::MODE_DISABLED;
 
 		// Allow filter override for programmatic control
 		return apply_filters( 'stratawp_font_loading_mode', $mode );
@@ -79,24 +91,25 @@ class Fonts implements ComponentInterface {
 	 * Initialize the component
 	 */
 	public function initialize(): void {
-		// Early exit if completely disabled
+		$this->font_pairings = $this->get_font_pairings();
+
+		// The settings UI is always available, even while disabled —
+		// otherwise the feature could never be enabled from the admin.
+		add_action( 'admin_menu', array( $this, 'register_admin_menu' ) );
+		add_action( 'admin_init', array( $this, 'register_settings' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+
+		// No frontend output unless a mode was explicitly enabled.
 		if ( $this->is_disabled() ) {
 			return;
 		}
-
-		$this->font_pairings = $this->get_font_pairings();
-
-		add_action( 'admin_menu', array( $this, 'register_admin_menu' ) );
-		add_action( 'admin_init', array( $this, 'register_settings' ) );
 
 		// Only load Google Fonts in google-api mode
 		if ( ! $this->is_self_hosted() ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_google_fonts' ) );
 		}
 
-		// Always output CSS variables (unless disabled)
 		add_action( 'wp_head', array( $this, 'output_font_css_variables' ), 999 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 	}
 
 	/**
@@ -427,7 +440,7 @@ class Fonts implements ComponentInterface {
 			'stratawp_font_loading_mode',
 			array(
 				'type'              => 'string',
-				'default'           => self::MODE_GOOGLE_API,
+				'default'           => self::MODE_DISABLED,
 				'sanitize_callback' => array( $this, 'sanitize_font_loading_mode' ),
 			)
 		);
@@ -1045,7 +1058,7 @@ class Fonts implements ComponentInterface {
 	 */
 	public function sanitize_font_loading_mode( string $value ): string {
 		$valid_modes = array( self::MODE_GOOGLE_API, self::MODE_SELF_HOSTED, self::MODE_DISABLED );
-		return in_array( $value, $valid_modes ) ? $value : self::MODE_GOOGLE_API;
+		return in_array( $value, $valid_modes, true ) ? $value : self::MODE_DISABLED;
 	}
 
 	/**
