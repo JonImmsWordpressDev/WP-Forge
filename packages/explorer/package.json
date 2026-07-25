@@ -1,6 +1,6 @@
 {
   "name": "@stratawp/explorer",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Interactive component explorer and documentation browser for StrataWP themes",
   "type": "module",
   "main": "./dist/index.js",
