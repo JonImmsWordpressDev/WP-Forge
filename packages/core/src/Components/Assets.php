@@ -42,6 +42,38 @@ class Assets implements ComponentInterface {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_fonts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_editor_assets' ) );
+		add_action( 'after_setup_theme', array( $this, 'register_editor_styles' ) );
+	}
+
+	/**
+	 * Register built editor CSS inside the block editor canvas
+	 *
+	 * Styles enqueued by enqueue_editor_assets() load page-level in
+	 * wp-admin, but with apiVersion 3 blocks the editor canvas is iframed
+	 * and page-level stylesheets never reach it. Paths registered via add_editor_style()
+	 * are injected into the canvas by WordPress, which leaves selectors
+	 * already containing .editor-styles-wrapper untransformed. Setup
+	 * declares the required 'editor-styles' theme support.
+	 */
+	public function register_editor_styles(): void {
+		$manifest = $this->get_manifest();
+
+		if ( ! $manifest ) {
+			return;
+		}
+
+		// Standalone CSS entry, for themes that list src/css/editor.css as a Vite input.
+		if ( isset( $manifest['src/css/editor.css']['file'] ) ) {
+			add_editor_style( 'dist/' . $manifest['src/css/editor.css']['file'] );
+		}
+
+		// The scaffolded vite.config defines editor as a JS entry; its
+		// compiled CSS lands in the entry's `css` array.
+		if ( ! empty( $manifest['src/js/editor.ts']['css'] ) ) {
+			foreach ( $manifest['src/js/editor.ts']['css'] as $css_file ) {
+				add_editor_style( 'dist/' . $css_file );
+			}
+		}
 	}
 
 	/**

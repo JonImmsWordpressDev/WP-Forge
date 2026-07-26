@@ -23,6 +23,58 @@ final class AssetsTest extends TestCase {
     protected function setUp(): void { parent::setUp(); Monkey\setUp(); }
     protected function tearDown(): void { Monkey\tearDown(); parent::tearDown(); }
 
+    public function test_editor_canvas_styles_registered_from_js_entry_css_array(): void {
+        // admin_enqueue_scripts styles never reach the iframed apiVersion 3
+        // editor canvas — the built editor CSS must also be registered via
+        // add_editor_style(), which WordPress injects into the canvas
+        // (issue #41).
+        $assets = new FakeManifestAssets();
+        $assets->fakeManifest = array(
+            'src/js/editor.ts' => array(
+                'file' => 'js/editor.ABC.js',
+                'css'  => array('css/editor.DEF.css'),
+            ),
+        );
+
+        Functions\expect('add_editor_style')->once()->with('dist/css/editor.DEF.css');
+
+        $assets->register_editor_styles();
+        $this->addToAssertionCount(1);
+    }
+
+    public function test_editor_canvas_styles_registered_from_legacy_standalone_key(): void {
+        $assets = new FakeManifestAssets();
+        $assets->fakeManifest = array(
+            'src/css/editor.css' => array('file' => 'css/editor.OLD.css'),
+        );
+
+        Functions\expect('add_editor_style')->once()->with('dist/css/editor.OLD.css');
+
+        $assets->register_editor_styles();
+        $this->addToAssertionCount(1);
+    }
+
+    public function test_editor_canvas_styles_skip_when_no_editor_entries(): void {
+        $assets = new FakeManifestAssets();
+        $assets->fakeManifest = array(
+            'src/js/main.ts' => array('file' => 'js/main.ABC.js'),
+        );
+
+        Functions\expect('add_editor_style')->never();
+
+        $assets->register_editor_styles();
+        $this->addToAssertionCount(1);
+    }
+
+    public function test_initialize_hooks_editor_canvas_style_registration(): void {
+        Monkey\Actions\expectAdded('after_setup_theme')->once();
+        Monkey\Actions\expectAdded('wp_enqueue_scripts')->twice();
+        Monkey\Actions\expectAdded('admin_enqueue_scripts')->once();
+
+        (new FakeManifestAssets())->initialize();
+        $this->addToAssertionCount(1);
+    }
+
     public function test_script_entry_also_enqueues_its_css_siblings(): void {
         Functions\when('get_template_directory_uri')->justReturn('https://example.test/wp-content/themes/t');
         Functions\when('get_template_directory')->justReturn('/srv/themes/t');
