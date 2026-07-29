@@ -1,9 +1,11 @@
 name: Publish npm packages
 
 # Publishes every public workspace package whose version is not yet on the
-# registry. `pnpm -r publish` skips already-published versions and rewrites
-# workspace: ranges, so this is safe to re-run and keeps npm from drifting
-# behind main after a release.
+# registry, authenticating via npm trusted publishing (OIDC) — no NPM_TOKEN
+# secret to rotate. Each public package lists this repo + this workflow file
+# as a trusted publisher on npmjs.com; id-token: write lets npm >= 11.5.1
+# exchange the Actions OIDC token for publish credentials. Safe to re-run:
+# scripts/ci-publish.mjs skips versions already on the registry.
 on:
   push:
     tags:
@@ -12,6 +14,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
@@ -25,14 +28,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: pnpm
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Ensure npm supports OIDC trusted publishing (>= 11.5.1)
+        run: npm install -g npm@latest && npm --version
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
       - name: Publish packages not yet on the registry
-        run: pnpm -r publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: node scripts/ci-publish.mjs
