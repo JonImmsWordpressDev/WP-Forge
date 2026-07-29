@@ -162,10 +162,10 @@ importers:
   packages/cli:
     dependencies:
       '@stratawp/explorer':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../explorer
       '@stratawp/sync':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../sync
       adm-zip:
         specifier: ^0.5.16
@@ -247,7 +247,7 @@ importers:
   packages/create-stratawp:
     dependencies:
       '@stratawp/cli':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../cli
 
   packages/explorer:
