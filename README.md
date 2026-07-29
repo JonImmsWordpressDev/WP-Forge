@@ -77,7 +77,7 @@ cd ~/Projects
 **2. Scaffold a new theme:**
 
 ```bash
-npx create-stratawp my-theme
+npx create-stratawp@latest my-theme
 ```
 
 The interactive wizard guides you through:

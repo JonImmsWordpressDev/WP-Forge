@@ -48,17 +48,23 @@ export async function customizeTheme(themePath: string, config: ThemeConfig) {
     packageJson.description = config.description
     packageJson.author = config.author
 
-    // Replace workspace dependencies with npm versions
-    if (packageJson.devDependencies) {
-      if (packageJson.devDependencies['@stratawp/vite-plugin'] === 'workspace:*') {
-        packageJson.devDependencies['@stratawp/vite-plugin'] = '^0.2.0'
-      }
-    }
-
     // Add StrataWP metadata for update tracking
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
     const cliPackageJson = await fs.readJson(path.join(__dirname, '..', 'package.json'))
+
+    // Replace workspace: deps with the npm versions this CLI release was built
+    // against — templateDependencies is stamped by scripts/sync-template-vendor.mjs
+    // at pack time, so it can't drift the way a hardcoded pin did.
+    for (const group of ['dependencies', 'devDependencies']) {
+      const deps = packageJson[group]
+      if (!deps) continue
+      for (const [dep, range] of Object.entries(deps)) {
+        if (typeof range === 'string' && range.startsWith('workspace:')) {
+          deps[dep] = cliPackageJson.templateDependencies?.[dep] ?? 'latest'
+        }
+      }
+    }
     packageJson.stratawp = {
       createdWith: cliPackageJson.version,
       template: config.template,

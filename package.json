@@ -30,7 +30,7 @@
     "clean": "turbo clean && rm -rf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo build && changeset publish",
+    "release": "turbo build && pnpm -r publish --access public --no-git-checks",
     "contracts:check": "node scripts/check-contracts.mjs",
     "contracts:validate": "node scripts/validate-contracts.mjs",
     "contracts:types:check": "node scripts/check-types-drift.mjs"

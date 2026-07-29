@@ -15,9 +15,9 @@ namespace StrataWP\Blocks;
  */
 function register_blocks() {
   register_block_type( get_template_directory() . '/src/blocks/feature-card' );
+  register_block_type( get_template_directory() . '/src/blocks/hero' );
   register_block_type( get_template_directory() . '/src/blocks/portfolio-grid' );
   register_block_type( get_template_directory() . '/src/blocks/team-members' );
-  register_block_type( get_template_directory() . '/src/blocks/hero' );
 }
 
 add_action( 'init', __NAMESPACE__ . '\register_blocks' );
