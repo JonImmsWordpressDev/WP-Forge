@@ -572,24 +572,12 @@ stratawp rollback:mark-stable 1
 
 ## Working with the Core Package
 
-The PHP core (`packages/core/`) is published to Packagist and installed via Composer:
+The PHP core (`packages/core/`) is NOT on Packagist — themes get it vendored:
 
-```json
-// composer.json in themes
-{
-  "require": {
-    "stratawp/core": "^0.1"
-  }
-}
-```
+- **CLI templates** bundle a snapshot at `templates/*/vendor/stratawp/core/`, refreshed automatically by `packages/cli/scripts/sync-template-vendor.mjs` on `prepack`, so every published CLI tarball carries current core. Inside the monorepo, templates resolve core via a Composer path repository (`../../packages/core`).
+- **Derived production themes** (outside this repo) vendor core at `vendor/stratawp/core/src/` and update by copying `packages/core/src/` over it.
 
-After modifying core:
-
-1. Update version in `packages/core/composer.json`
-2. Commit and push changes
-3. Tag release on GitHub
-4. Packagist auto-updates
-5. Run `composer update` in themes
+After modifying core, no separate release step is needed for the npm side — the next `@stratawp/cli` publish picks it up via `prepack`. Derived themes must copy the new files manually.
 
 ## Releases & Publishing
 
@@ -615,6 +603,10 @@ Published packages:
 - `create-stratawp` - Theme creation CLI
 
 ## GitHub Actions
+
+### npm Publish Workflow (`.github/workflows/publish-npm.yml`)
+
+Publishes every public workspace package whose version is not yet on the registry. Triggered by `v*` tag pushes or manual dispatch. Authenticates via **npm trusted publishing (OIDC)** — no `NPM_TOKEN` secret exists or is needed; each public package lists this repo + `publish-npm.yml` as a trusted publisher on npmjs.com (per-package config — a brand-new package needs its trusted publisher entry added before its first CI publish). `scripts/ci-publish.mjs` packs with pnpm (rewrites `workspace:` ranges) and publishes with npm ≥ 11.5.1, with provenance signed automatically.
 
 ### Theme Release Workflow (`.github/workflows/release-theme.yml`)
 
