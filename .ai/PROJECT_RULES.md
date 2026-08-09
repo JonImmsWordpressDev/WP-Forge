@@ -1,0 +1,60 @@
+# Project Rules & Learned Guidelines
+
+This file is generated and updated over time by the AI agents assisting with StrataWP's development. It acts as long-term memory: a running log of project-specific guidelines, discovered architectural patterns, and decisions made during development.
+
+> [!IMPORTANT]
+> **AI Agents:** This file contains dynamic, project-specific rules discovered and written during development. You **MUST** read this file on onboarding and keep it updated with new architectural decisions and conventions established during your work.
+
+---
+
+## 🏗️ Discovered Repository Configuration
+
+<!--
+Agent: Document the specific setup of this repository as you discover it (workspace layout, build pipeline, CI gates, environment quirks, etc.).
+-->
+
+- **Repository Type:** Turborepo + pnpm workspace monorepo (packages under `packages/*`, themes under `examples/*`).
+- **Package Manager:** pnpm ONLY (`packageManager: pnpm@8.x`). Never `npm` or `yarn` for installs or workspace scripts.
+- **PHP Core Distribution:** `packages/core` is NOT on Packagist. Themes get it vendored — CLI templates bundle a snapshot at `packages/cli/templates/*/vendor/stratawp/core/`, auto-refreshed by `packages/cli/scripts/sync-template-vendor.mjs` on `prepack`. Never hand-edit the snapshot.
+- **npm Publishing:** Trusted publishing via OIDC (`.github/workflows/publish-npm.yml`). No `NPM_TOKEN` secret exists. New packages need a trusted-publisher entry on npmjs.com before their first CI publish.
+- **Accessibility Gate:** CI runs axe-core (Playwright) against the built `examples/basic-theme` on wp-env and fails on any WCAG 2.1 A/AA violation.
+
+---
+
+## 🎨 Discovered Design System & Tokens
+
+<!--
+Agent: Document custom colors, spacing systems, and typography rules configured for the example themes. Refer to each theme's theme.json.
+-->
+
+- **Color Palette:**
+- **Typography Rules:**
+- **Spacing Scale:**
+
+---
+
+## 💻 Project-Specific Coding Patterns
+
+<!--
+Agent: Document the custom architectural habits and patterns established in this repository (e.g., custom hooks, naming standards, specific APIs to use or avoid).
+-->
+
+- **PHP Components:** Implement `ComponentInterface` (`get_slug()` + `initialize()`); register through the `Theme` class constructor. The `stratawp_theme_components` filter is the extension point.
+- **Filter Naming:** Framework filters are prefixed `stratawp_` (e.g., `stratawp_conditional_css_files`, `stratawp_preconnect_hints`, `stratawp_defer_scripts`).
+- **Block Patterns:** Follow the pattern-authoring rules in `CLAUDE.md` — native blocks first, `wp:html` only when it earns its keep, no bare HTML comments between blocks.
+- **TypeScript:** Strict mode across packages; file names kebab-case for TS, PascalCase for PHP classes.
+
+---
+
+## 📝 Running Architectural Decisions & Learnings Log
+
+<!--
+Agent: Keep a chronological log of major design decisions, local gotchas, or unique implementations here. This prevents future agents (or yourself after a context clear) from repeating mistakes or refactoring working structures.
+
+Entry format:
+
+### 📅 YYYY-MM-DD - Short Title
+- **Context:** What prompted the decision.
+- **Decision:** What was done and where.
+- **Key Learning:** The reusable insight for future work.
+-->

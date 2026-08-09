@@ -690,3 +690,40 @@ All skills target **WordPress 6.9+** with **PHP 7.2.24+** and assume:
 - Filesystem-based agent with bash + node
 - Some workflows require WP-CLI
 - Vite/@wordpress/scripts for builds
+
+## AI-Assisted Development
+
+StrataWP ships a structured, agent-agnostic development protocol so any AI coding agent (Claude Code, Cursor, Copilot, Gemini CLI, Codex, Windsurf) works within the framework's architecture instead of around it.
+
+### The Protocol (`AGENTS.md`)
+
+`AGENTS.md` at the repo root is the mandatory entry point for AI agents. It defines five pillars: onboarding/state tracking, build-pipeline rules (source files only, pnpm only), contract-first development, configuration-first changes, and a pre-flight quality check.
+
+### The `.ai/` Directory
+
+| File / Directory              | Purpose                                                                                                                                  |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `.ai/ONBOARDING.md`           | First-time agent onboarding workflow                                                                                                     |
+| `.ai/agent-state.md`          | Onboarding status tracking — prevents redundant setup runs                                                                               |
+| `.ai/PROJECT_RULES.md`        | Self-learning memory: discovered conventions and a dated decision log agents maintain                                                    |
+| `.ai/developer-directions.md` | Maintainer-authored constraints and priorities all agents must follow                                                                    |
+| `.ai/SKILLS.md`               | Directory of all agent skills                                                                                                            |
+| `.ai/skills/*/SKILL.md`       | StrataWP-specific recipes (architecture, feature planning, code quality, components, blocks, testing, deployment, releases, self-review) |
+| `.ai/plans/`                  | Contract-first feature specs (`SPEC-TEMPLATE.md` is the starting point)                                                                  |
+| `.aiignore`                   | Files agents should not read or index (artifacts, deps, vendored snapshots)                                                              |
+
+`.claude/skills/` (WordPress domain skills) complements `.ai/skills/` (StrataWP-specific workflows) — both are referenced from `.ai/SKILLS.md`.
+
+### Commands
+
+```bash
+pnpm ai:setup    # Generate instruction files for specific agents (Cursor, Copilot, Gemini, Windsurf)
+pnpm ai:check    # Pre-flight gate: lint + format:check + typecheck + test
+pnpm mcp:docs    # Start the docs MCP server (search/read repo documentation over stdio)
+```
+
+The docs MCP server (`scripts/mcp-docs-server.mjs`) is dependency-free and exposes `stratawp_docs_list`, `stratawp_docs_search`, and `stratawp_docs_read` tools. Register it in any MCP client with `{ "command": "node", "args": ["scripts/mcp-docs-server.mjs"] }`. It complements the `@stratawp/mcp` package (`packages/mcp`), which exposes the framework's generators and component catalog as MCP tools/resources.
+
+### Contract-First Workflow
+
+Non-trivial features require an approved spec before implementation: agents ask clarifying questions until they exceed 95% implementation confidence, write a spec in `.ai/plans/` from the template, and only start coding after approval. Significant decisions get logged to `.ai/PROJECT_RULES.md` so future sessions inherit the context.
