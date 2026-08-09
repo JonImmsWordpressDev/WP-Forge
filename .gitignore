@@ -59,6 +59,9 @@ wp-content/wp-cache-config.php
 *.temp
 .cache/
 
+# Local AI tool artifacts
+ruvector.db
+
 # Internal development notes
 DEVELOPMENT_NOTES.md
 
