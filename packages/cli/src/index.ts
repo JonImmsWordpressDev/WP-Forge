@@ -23,10 +23,14 @@ import { syncDbPullCommand, syncDbPushCommand } from './commands/sync'
 import { syncTemplatesCommand, listTemplatesCommand } from './commands/deploy/sync-templates'
 import { updateCommand } from './commands/update'
 import { iconsSetupCommand, iconsUpdateCommand, iconsListCommand } from './commands/icons'
+import { getCliVersion } from './version'
 
 const program = new Command()
 
-program.name('stratawp').description('⚡ A modern WordPress theme framework').version('2.0.0')
+program
+  .name('stratawp')
+  .description('⚡ A modern WordPress theme framework')
+  .version(getCliVersion())
 
 // Development server
 program

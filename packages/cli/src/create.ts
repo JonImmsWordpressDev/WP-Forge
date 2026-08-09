@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 import validatePackageName from 'validate-npm-package-name'
 import { customizeTheme, type ThemeConfig } from './customize-theme.js'
+import { getCliVersion } from './version.js'
 
 async function main() {
   console.log(chalk.bold.cyan('\n⚡ Create StrataWP Theme\n'))
@@ -294,11 +295,6 @@ async function detectWordPressSites(): Promise<WordPressSite[]> {
 }
 
 async function createBasicStructure(themePath: string, config: ThemeConfig) {
-  // Get CLI version for metadata
-  const __filename = fileURLToPath(import.meta.url)
-  const __dirname = dirname(__filename)
-  const cliPackageJson = await fs.readJson(path.join(__dirname, '..', 'package.json'))
-
   // Create package.json
   const packageJson = {
     name: config.slug,
@@ -327,7 +323,7 @@ async function createBasicStructure(themePath: string, config: ThemeConfig) {
       typescript: config.typescript ? '^5.3.3' : undefined,
     },
     stratawp: {
-      createdWith: cliPackageJson.version,
+      createdWith: getCliVersion(),
       template: config.template,
       createdAt: new Date().toISOString(),
     },
