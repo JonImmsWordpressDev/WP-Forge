@@ -1,0 +1,42 @@
+# Files and directories AI agents should not read or index.
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+dist/
+.turbo/
+.vite/
+
+# Generated files
+inc/blocks-generated.php
+
+# Temporary files
+*.log
+tmp/
+.DS_Store
+*.zip
+*.tar.gz
+*.bak
+
+# Minified assets
+*.min.css
+*.min.css.map
+*.min.js
+*.min.js.map
+
+# Environment & secrets
+.env
+.env.*
+.stratawp-deploy.json
+.stratawp-snapshots/
+
+# Binary assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.woff
+*.woff2
