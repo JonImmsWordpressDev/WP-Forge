@@ -1,5 +1,11 @@
 # @stratawp/cli
 
+## 2.1.1
+
+### Patch Changes
+
+- 3651be2: `stratawp --version` now reports the real package version read from package.json at runtime, instead of a stale hardcoded string.
+
 ## 2.1.0
 
 ### Minor Changes
