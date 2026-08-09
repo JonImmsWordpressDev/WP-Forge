@@ -1,0 +1,47 @@
+# Files and directories AI agents should not read or index.
+# Keeps agent context focused on source files, not artifacts.
+
+# Dependency folders
+node_modules/
+vendor/
+packages/core/vendor/
+
+# Build artifacts
+dist/
+build/
+.turbo/
+.lighthouseci/
+playwright-report/
+test-results/
+coverage/
+
+# Generated vendored snapshots (source of truth is packages/core/src/)
+packages/cli/templates/*/vendor/
+
+# Temporary files
+*.log
+tmp/
+.DS_Store
+*.zip
+*.tar.gz
+ruvector.db
+
+# Minified assets
+*.min.css
+*.min.css.map
+*.min.js
+*.min.js.map
+
+# Environment & local config
+.env
+.env.*
+.stratawp-deploy.json
+.stratawp-snapshots/
+
+# Binary assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.woff
+*.woff2

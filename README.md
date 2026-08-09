@@ -40,6 +40,7 @@ Scaffold a full theme with one command, edit PHP/SCSS/TypeScript and see changes
 - **Headless WordPress** — typed REST API client, React hooks, and Next.js integration.
 - **Production Deployment** — SFTP/FTP/SSH deployment with change detection.
 - **Environment Sync & Rollback** — database sync plus automatic pre-deploy snapshots.
+- **AI-Assisted Development** — a built-in agent protocol (`AGENTS.md` + `.ai/`), agent skills, one-command agent setup, and a docs MCP server.
 
 ## Prerequisites
 
@@ -288,6 +289,98 @@ pnpm build
 npm install -g .
 stratawp --help
 ```
+
+## AI-Assisted Development
+
+StrataWP is built to be developed _with_ AI coding agents, not just _by_ them. The repository ships a structured, agent-agnostic workflow so Claude Code, Cursor, GitHub Copilot, Gemini CLI, Codex, and Windsurf all follow the same rules — and produce code that actually fits the framework.
+
+**New to AI-assisted coding?** Follow the quick start below. You don't need to understand any of the machinery first — the whole point is that your AI tool reads these files itself and learns how StrataWP works.
+
+### What's included
+
+| File / Directory              | What it does                                                                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [`AGENTS.md`](./AGENTS.md)    | The rulebook every agent reads first: onboarding, build-pipeline rules, contract-first specs, and a pre-flight quality gate     |
+| `.ai/ONBOARDING.md`           | Step-by-step onboarding an agent follows on its first session                                                                   |
+| `.ai/PROJECT_RULES.md`        | The agent's long-term memory — conventions and decisions it records so future sessions don't repeat mistakes                    |
+| `.ai/developer-directions.md` | **Your** standing instructions to every agent (design rules, priorities, do-not-touch areas)                                    |
+| `.ai/skills/`                 | Step-by-step recipes for StrataWP tasks: architecture, planning, components, blocks, testing, deployment, releases, self-review |
+| `.ai/plans/`                  | Feature specs the agent writes and you approve before it codes                                                                  |
+| `.claude/skills/`             | Deep WordPress domain skills (blocks, theme.json, REST API, WP-CLI, performance, PHPStan)                                       |
+| `.aiignore`                   | Keeps agents out of build artifacts and vendored snapshots                                                                      |
+
+### Quick start: your first AI session
+
+**Step 1 — Pick your AI tool and configure it (one time).**
+
+Claude Code and Codex work out of the box (they read `CLAUDE.md` / `AGENTS.md` automatically). For Cursor, GitHub Copilot, Gemini CLI, or Windsurf, run:
+
+```bash
+pnpm ai:setup
+```
+
+Select your tool from the list. This writes a small instruction file your tool reads automatically — you never need to paste rules into a chat window.
+
+**Step 2 — Open the repo in your AI tool and let it onboard.**
+
+Start your agent in the repository root and say:
+
+> Read AGENTS.md and complete your onboarding.
+
+The agent reads the protocol, checks its state file, reads your directions, maps the codebase, and records that it's onboarded. This happens once — later sessions skip straight to work.
+
+**Step 3 — Ask for what you want, in plain English.**
+
+Examples of good first prompts:
+
+> Create a "testimonial" block for the basic-theme example, with a quote, author name, and photo.
+
+> Add a PHP component that outputs Open Graph meta tags, and register it in the basic theme.
+
+For anything non-trivial, the agent won't jump straight to code — it will ask clarifying questions, write a short spec in `.ai/plans/`, and wait for your approval. That's intentional (it's the contract-first rule in `AGENTS.md`): you approve the plan, then it builds.
+
+**Step 4 — Verify the work before you accept it.**
+
+Ask the agent to run the quality gate, or run it yourself:
+
+```bash
+pnpm ai:check    # lint + format + typecheck + unit tests, all must pass
+```
+
+If the change affects what visitors see, also run the accessibility suite (`pnpm test:e2e` — requires wp-env, see [Testing & Quality](https://github.com/JonImmsWordpressDev/strataWP/wiki/Testing-and-Quality)).
+
+**Step 5 — Teach it your preferences (optional but powerful).**
+
+Open [`.ai/developer-directions.md`](./.ai/developer-directions.md) and fill in your brand colors, coding preferences, and do-not-touch areas. Every agent reads this file on every project — write an instruction once and never repeat it in chat again. The agent also keeps its own notes in `.ai/PROJECT_RULES.md`; skim it occasionally to see what it has learned.
+
+### Give your agent StrataWP superpowers (MCP)
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io/) lets AI tools call live capabilities instead of guessing. StrataWP ships two servers:
+
+- **Docs server** (`pnpm mcp:docs`) — dependency-free search over this repo's documentation (`stratawp_docs_search`, `stratawp_docs_read`).
+- **`@stratawp/mcp` package** — exposes the framework's generators and component catalog as tools/resources.
+
+To register the docs server, add this to your tool's MCP config (e.g. `.mcp.json` for Claude Code, `.cursor/mcp.json` for Cursor):
+
+```json
+{
+  "mcpServers": {
+    "stratawp-docs": {
+      "command": "node",
+      "args": ["scripts/mcp-docs-server.mjs"]
+    }
+  }
+}
+```
+
+Then ask your agent things like _"search the StrataWP docs for conditional styles"_ and it will pull the real documentation instead of hallucinating an answer.
+
+### Tips for beginners
+
+- **Small asks beat big asks.** "Add a hero block" works better than "redesign my theme".
+- **Let the agent use the scaffolders.** The rules already tell it to prefer `stratawp block:new` / `component:new` over hand-written boilerplate — that's how output stays consistent.
+- **Never merge unverified work.** If the agent says it's done but `pnpm ai:check` wasn't run, run it.
+- **Agents follow the same rules as humans here:** source files only, pnpm only, specs before big changes. If a suggestion violates those, the agent is off-protocol — tell it to re-read `AGENTS.md`.
 
 ## Contributing
 

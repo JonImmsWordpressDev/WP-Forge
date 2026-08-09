@@ -1,0 +1,20 @@
+---
+description: StrataWP repository rules for AI-assisted development
+alwaysApply: true
+---
+
+# StrataWP — AI Agent Instructions
+
+This repository uses a structured AI-assisted development workflow.
+
+**Read `AGENTS.md` at the repository root and follow its protocol before making any changes.**
+
+Core rules (full detail in AGENTS.md):
+
+1. **Onboarding & state:** Check `.ai/agent-state.md`. If onboarding is pending, follow `.ai/ONBOARDING.md`. Always read `.ai/PROJECT_RULES.md` for learned repository conventions.
+2. **pnpm only.** This is a Turborepo + pnpm workspace monorepo. Never use npm or yarn.
+3. **Source files only.** Never edit `dist/`, generated files (`inc/blocks-generated.php`), or the vendored core snapshots under `packages/cli/templates/*/vendor/` — change `packages/core/src/` instead.
+4. **Contract-first.** Non-trivial features require an approved spec in `.ai/plans/` (see `.ai/skills/feature-planning/SKILL.md`).
+5. **Pre-flight check.** Run `pnpm ai:check` (lint, format, typecheck, unit tests) before submitting work.
+
+Skill recipes live in `.ai/skills/` (see `.ai/SKILLS.md` for the directory) and WordPress domain skills in `.claude/skills/`. Run `pnpm mcp:docs` for documentation search via the Model Context Protocol; the `@stratawp/mcp` package exposes generators and the component catalog.

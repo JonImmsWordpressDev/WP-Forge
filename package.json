@@ -33,7 +33,10 @@
     "release": "turbo build && pnpm -r publish --access public --no-git-checks",
     "contracts:check": "node scripts/check-contracts.mjs",
     "contracts:validate": "node scripts/validate-contracts.mjs",
-    "contracts:types:check": "node scripts/check-types-drift.mjs"
+    "contracts:types:check": "node scripts/check-types-drift.mjs",
+    "ai:setup": "node scripts/ai-setup.mjs",
+    "ai:check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test",
+    "mcp:docs": "node scripts/mcp-docs-server.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
