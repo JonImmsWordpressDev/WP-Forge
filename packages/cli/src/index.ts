@@ -27,7 +27,10 @@ import { getCliVersion } from './version'
 
 const program = new Command()
 
-program.name('stratawp').description('⚡ A modern WordPress theme framework').version(getCliVersion())
+program
+  .name('stratawp')
+  .description('⚡ A modern WordPress theme framework')
+  .version(getCliVersion())
 
 // Development server
 program
